@@ -1,0 +1,38 @@
+feedback_id,retailer_id,product_id,sale_id,feedback_date,feedback_type,channel,sentiment,description,status,resolution_details
+3,3102,147.0,20,2025-01-02,Sales Service,Distributor Portal,Negative,Nesciunt qui est soluta pariatur eaque adipisci explicabo quasi repellat maxime minus alias voluptates molestiae minus dicta labore.,Closed,Hic dolore similique rem aperiam numquam eum.
+5,3126,156.0,39,2025-01-28,Complaint,Whatsapp,Negative,Debitis rem dolore sed provident neque esse adipisci maiores animi quisquam fugit id dolores odio ea incidunt quis sed.,Resolved,Neque est enim provident quo molestias laudantium tenetur.
+46,3273,,564,2025-01-22,Sales Service,Email,Neutral,Placeat amet laborum maxime quia corrupti repellat dolor facilis.,Resolved,Occaecati officia dolorem totam officiis iure.
+65,3416,137.0,756,2025-01-03,Sales Service,Phone,Negative,Hic sequi nesciunt in accusantium totam provident repellendus magni corporis vero autem eveniet in blanditiis.,Closed,Beatae voluptatum unde pariatur corporis perferendis fugiat minus adipisci alias officiis.
+68,3213,149.0,813,2025-01-08,Sales Service,Distributor Portal,Positive,Aliquid similique quas facilis ad occaecati laborum reiciendis excepturi.,In Progress,
+80,3169,120.0,980,2025-01-28,Complaint,Distributor Portal,Neutral,Nostrum optio quibusdam omnis nulla ducimus dolorem reprehenderit dicta saepe est harum quos dignissimos quod.,Open,
+110,3312,152.0,1367,2025-01-02,Quality Issue,Sales Rep,Negative,Repudiandae non eaque qui dolore asperiores doloribus ab perspiciatis quis veritatis rem libero unde sit eveniet saepe.,Escalated,
+113,3447,111.0,1397,2025-01-01,Complaint,Whatsapp,Negative,Possimus quasi esse repellat maxime consequatur hic maiores natus deserunt nulla debitis minus quae provident mollitia deserunt repellat ut.,In Progress,
+143,3008,140.0,1766,2025-01-30,Query,Email,Neutral,Velit minus minus atque maiores velit nisi ipsum laborum quisquam.,In Progress,
+150,3199,,1863,2025-01-04,Query,Whatsapp,Positive,Repellat quia praesentium et explicabo quo asperiores sit maiores.,Escalated,
+173,3435,,2242,2025-01-28,Sales Service,Sales Rep,Negative,Architecto doloremque perspiciatis qui quod dolore magnam dicta quidem placeat eaque eveniet assumenda.,In Progress,
+186,3136,110.0,2377,2025-01-15,Product Suggestion,Phone,Negative,Dicta labore quae magni provident et occaecati dolorem iste voluptatem ab aliquam quo eveniet iste accusamus debitis reprehenderit ad.,Escalated,
+189,3411,150.0,2428,2025-01-25,Product Suggestion,Distributor Portal,Positive,Sit accusantium sit minima alias officia ratione tempora nam assumenda hic similique illo reiciendis ex illum cumque consequatur inventore aperiam.,Open,
+192,3103,141.0,2486,2025-01-18,Complaint,Email,Positive,Neque quo ratione fugiat asperiores laboriosam odio impedit sequi sit facere voluptatibus magni nobis dolore cum repudiandae animi minus quod.,In Progress,
+204,3015,,2594,2025-01-18,Complaint,Phone,Neutral,Laboriosam nobis laborum sequi tempore quisquam repellat dolorum nisi quae necessitatibus consequatur assumenda incidunt facere aut dignissimos culpa labore modi.,Resolved,Dolores magnam assumenda consectetur vero consequatur magni fugiat alias non.
+217,3396,130.0,2796,2025-01-20,Order Accuracy,Phone,Neutral,Facere voluptas illo molestiae fuga reiciendis et eaque doloremque sed eius aut temporibus reprehenderit rem quo repellendus unde possimus inventore.,Open,
+297,3476,,4156,2025-01-27,Sales Service,Whatsapp,Negative,Minima fugit ut ipsum rerum illum saepe nemo accusamus ex provident saepe quidem officia porro tenetur.,Open,
+303,3373,114.0,4208,2025-01-17,Query,Email,Positive,Quo consectetur ipsa placeat alias magni ea cupiditate aliquid ad ipsum itaque ex laborum nulla.,In Progress,
+315,3085,104.0,4323,2025-01-20,Query,Email,Positive,Corporis eos inventore minima nisi beatae rerum minus fugiat voluptas.,Open,
+330,3310,110.0,4526,2025-01-08,Order Accuracy,Distributor Portal,Neutral,Distinctio itaque aspernatur ex nam voluptatibus nemo corporis qui laborum voluptatibus quis explicabo fugit est.,Resolved,Aperiam assumenda architecto enim reiciendis ratione debitis occaecati.
+334,3165,105.0,4576,2025-01-10,Order Accuracy,Email,Neutral,Dolorem neque quas eaque officia repellendus iste quia culpa aspernatur sapiente atque officia eos iste explicabo itaque consequuntur consequuntur amet.,Open,
+364,3205,152.0,4981,2025-01-06,Quality Issue,Phone,Neutral,Quisquam nam ducimus corporis itaque ad beatae impedit labore voluptatibus cum aperiam doloremque voluptatibus facilis ipsum soluta magni voluptates.,Closed,Sint consectetur consequuntur eligendi eligendi numquam natus.
+387,3408,129.0,5309,2025-01-01,Quality Issue,Phone,Neutral,Cum dignissimos magnam quidem cum facere natus recusandae voluptatibus dolore porro.,Open,
+401,3338,141.0,5474,2025-01-21,Order Accuracy,Email,Positive,Architecto magnam voluptate cupiditate eaque praesentium facere voluptas repellendus reprehenderit debitis reprehenderit.,In Progress,
+497,3053,,6822,2025-01-03,Delivery Issue,Phone,Neutral,Asperiores doloremque a dolores nesciunt iste iure id illo distinctio voluptate beatae quis repellat esse similique distinctio laborum beatae.,Closed,Blanditiis deserunt sunt mollitia dignissimos dicta dolorem exercitationem consectetur modi iusto nobis facere.
+560,3215,141.0,7740,2025-01-12,Product Suggestion,Distributor Portal,Positive,Error quos consectetur placeat dolorum laudantium sunt officia iste labore voluptas sequi corporis quas quod iusto ea.,Escalated,
+572,3297,,7954,2025-01-08,Quality Issue,Distributor Portal,Neutral,Laboriosam magnam fugit aspernatur molestiae asperiores voluptas velit amet accusamus neque quos in dicta quaerat aliquid aperiam cumque itaque.,In Progress,
+589,3483,111.0,8052,2025-01-28,Sales Service,Distributor Portal,Neutral,At vero repellendus quisquam natus occaecati nihil dignissimos sed cum quos eum odit.,Resolved,Laborum culpa iusto vitae cum dolorum eius ut tempore maiores.
+611,3038,,8274,2025-01-30,Complaint,Distributor Portal,Neutral,Excepturi qui nesciunt modi commodi doloribus autem nihil perspiciatis reiciendis nesciunt laboriosam est minus.,Escalated,
+628,3155,134.0,8488,2025-01-22,Product Suggestion,Sales Rep,Positive,Corrupti qui illum commodi minima rerum quo natus voluptates corporis quae.,Closed,Officiis consectetur totam assumenda maxime sed rem pariatur blanditiis.
+635,3423,138.0,8570,2025-01-21,Delivery Issue,Phone,Positive,Dolorum error quod omnis repellat qui dolorum dolorem deleniti corrupti.,In Progress,
+673,3399,,9077,2025-01-05,Order Accuracy,Sales Rep,Positive,Omnis quam alias veritatis perferendis laudantium aliquid quam culpa.,Resolved,Et occaecati consequuntur nobis rem maiores.
+689,3234,137.0,9261,2025-01-02,Quality Issue,Whatsapp,Negative,Autem aut doloremque impedit delectus quas quibusdam fuga repellendus mollitia quidem ut totam in iste quo aperiam sit.,Closed,Tempora sapiente quibusdam architecto sequi sunt repudiandae.
+715,3234,117.0,9566,2025-01-28,Sales Service,Whatsapp,Positive,Tenetur doloremque iste reiciendis incidunt dolorem eaque numquam a saepe ab perferendis.,Escalated,
+747,3114,141.0,10014,2025-01-05,Delivery Issue,Phone,Positive,Impedit autem nesciunt mollitia esse quisquam veniam debitis fugiat.,Escalated,
+776,3188,159.0,10443,2025-01-21,Quality Issue,Distributor Portal,Neutral,Id id neque ratione accusamus sapiente qui dolorum doloremque sunt accusantium esse deserunt.,Resolved,Iure natus id reprehenderit odit molestiae perspiciatis neque est.
+783,3335,110.0,10560,2025-01-01,Quality Issue,Email,Neutral,Repellendus deserunt maxime et consectetur optio nostrum nulla quo quis quam esse voluptatibus.,Open,

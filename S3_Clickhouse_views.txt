@@ -1,0 +1,1035 @@
+-- ClickHouse ETL: S3 Data Ingestion, Cleansing, Transformation, and Metrics
+-- This script demonstrates loading data from AWS S3, performing cleansing and transformations,
+-- and calculating key business metrics within a ClickHouse database.
+
+-- IMPORTANT: For production, consider using IAM roles for ClickHouse S3 access for enhanced security.
+-- If using IAM roles for ClickHouse server, you might not need to set these.
+-- Example: SET s3_access_key_id = 'YOUR_AWS_ACCESS_KEY_ID';
+-- Example: SET s3_secret_access_key = 'YOUR_AWS_SECRET_ACCESS_KEY';
+
+-- 1. Database Setup
+-- Create the main database for Kellanova data.
+
+-- Step 1: Create Database
+
+--DROP DATABASE kellanova;
+CREATE DATABASE IF NOT EXISTS kellanova;
+----DROP TABLE IF EXISTS kellanova.sales_cleaned;
+
+-- Step 2: External Table for Loading S3 Data
+--DROP TABLE IF EXISTS kellanova.sales_stage;
+--DROP TABLE IF EXISTS kellanova.sales_cleansed;
+
+--Sales Table combining from different folders 
+CREATE TABLE IF NOT EXISTS kellanova.s3_sales_raw
+ENGINE = MergeTree()
+--ORDER BY (invoice_number, sale_date)
+-- If column Nullable then below
+-- As Mergetree setting-- allow Nullable column is disabled
+ORDER BY (ifNull(invoice_number, ''))
+AS
+SELECT *
+FROM s3(
+    'https://Url/kellanova_sales/*/*.csv',
+    'XXXXXXX', -- Your Access Key
+    'XXXXXXX', -- Your Secret Key
+    'CSVWithNames'
+);
+--Feedback Table combining from different folders sub folders
+CREATE TABLE IF NOT EXISTS kellanova.s3_feedback_raw
+ENGINE = MergeTree()
+ORDER BY (ifNull(cast(retailer_id AS String), ''))
+AS
+SELECT *
+FROM s3(
+    'https://Url/kellanova_sales/*/*.csv',
+    'XXXXXXX', -- Your Access Key
+    'XXXXXXX', -- Your Secret Key
+    'CSVWithNames'
+);
+
+-- Raw Products Data
+CREATE TABLE IF NOT EXISTS raw_products 
+ENGINE = MergeTree()
+ORDER BY ifNull(cast(product_id as String), '')
+AS
+SELECT *
+FROM s3(
+    'Url/kellanova_products.csv',
+    'XXXXXXX',
+    'XXXXXXX', 
+    'CSVWithNames');
+
+-- Raw Retailers Data
+CREATE TABLE IF NOT EXISTS raw_retailers 
+ ENGINE = MergeTree()
+ORDER BY coalesce(retailer_id, 0)
+--retailer_id is int format
+AS
+SELECT *
+FROM s3('Url/kellanova_retailers.csv',
+ 'XXXXXXX',
+    'XXXXXXX', 
+    'CSVWithNames');
+
+-- Raw Promotions Data
+CREATE TABLE IF NOT EXISTS raw_promotions 
+ ENGINE = MergeTree()
+ORDER BY tuple(promotion_id)
+SETTINGS allow_nullable_key = 1
+AS
+SELECT *
+FROM s3('Url/kellanova_promotions.csv', 
+        'XXXXXXXX', 
+        'XXXXXXXX',
+         'CSVWithNames');
+
+-- Added New  -------------------------
+
+-- Verify raw data can be read (optional, for testing)
+-- SELECT * FROM raw_products LIMIT 5;
+-- SELECT * FROM raw_sales LIMIT 5;
+
+
+-- 3. Create CURATED Dimension Tables
+-- These tables store the cleaned, transformed, and conformed master data.
+-- ReplacingMergeTree engine is used for deduplication based on the primary key,
+-- ensuring that only the latest version of a record (based on the primary key) is kept during merges.
+
+CREATE TABLE IF NOT EXISTS dim_products (
+    product_id UInt32,
+    product_name String,
+    category LowCardinality(String), -- Use LowCardinality for better compression and performance
+    brand LowCardinality(String),     -- Use LowCardinality
+    pack_size_g_ml UInt32,
+    base_unit_price Float64,
+    is_promotional_item UInt8,        -- 0 for false, 1 for true
+    pack_size_category LowCardinality(String) -- Derived, use LowCardinality
+) ENGINE = ReplacingMergeTree(product_id) -- Deduplicate on product_id
+ORDER BY product_id;
+
+CREATE TABLE IF NOT EXISTS dim_retailers (
+    retailer_id UInt32,
+    retailer_name String,
+    retailer_type LowCardinality(String), -- Use LowCardinality
+    retailer_city LowCardinality(String),   -- Use LowCardinality
+    retailer_pincode String,
+    retailer_latitude Float64,
+    retailer_longitude Float64,
+    contact_person String,
+    retailer_region LowCardinality(String), -- Derived, use LowCardinality
+    retailer_tier LowCardinality(String)    -- Placeholder for future enrichment, use LowCardinality
+) ENGINE = ReplacingMergeTree(retailer_id)
+ORDER BY retailer_id;
+
+CREATE TABLE IF NOT EXISTS dim_promotions (
+    promotion_id UInt32,
+    promotion_name String,
+    start_date Date,
+    end_date Date,
+    discount_percentage Float32,
+    min_qty_for_promo UInt32,
+    applicable_product_id Nullable(UInt32), -- Can be NULL
+    applicable_category LowCardinality(String), -- Corrected: Removed Nullable() wrapper as LowCardinality handles NULLs
+    promotion_duration_days UInt32,          -- Derived
+    promotion_scope LowCardinality(String)   -- Derived, use LowCardinality
+) ENGINE = ReplacingMergeTree(promotion_id)
+ORDER BY promotion_id;
+*/
+
+-- 4. Create CURATED Fact Tables
+-- These tables store the cleaned, transformed, and joined transactional data.
+-- MergeTree engine is used for efficient partitioning and sorting for OLAP queries.
+
+CREATE TABLE IF NOT EXISTS fact_sales (
+    sale_id UInt64,
+    retailer_id UInt32,
+    product_id UInt32,
+    promotion_id Nullable(UInt32), -- Can be NULL
+    sale_date Date,
+    sale_year UInt16,
+    sale_month UInt8,
+    sale_quarter UInt8,
+    sale_day_of_week UInt8,
+    sale_day_of_month UInt8,
+    sale_week_of_year UInt8,
+    is_weekend_sale UInt8,         -- Derived (0 for false, 1 for true)
+    is_holiday_period_sale UInt8,  -- Placeholder for future enrichment (0 for false, 1 for true)
+    quantity_sold UInt32,
+    unit_selling_price Float64,
+    gross_sale_value Float64,
+    discount_amount Float64,
+    net_sale_value Float64,
+    gross_profit Float64,          -- Derived
+    sales_per_unit Float64,        -- Derived
+    discount_rate_applied Float32, -- Derived
+    payment_method LowCardinality(String),       -- Use LowCardinality
+    distribution_channel LowCardinality(String), -- Use LowCardinality
+    invoice_number String
+) ENGINE = MergeTree()
+PARTITION BY toYYYYMM(sale_date) -- Partition by year-month for efficient time-range queries
+ORDER BY (sale_date, retailer_id, product_id); -- Order by common filter/join columns
+
+CREATE TABLE IF NOT EXISTS fact_retailer_feedback (
+    feedback_id UInt64,
+    retailer_id UInt32,
+    product_id Nullable(UInt32),
+    sale_id Nullable(UInt64),
+    feedback_date Date,
+    feedback_year UInt16,
+    feedback_month UInt8,
+    feedback_type LowCardinality(String), -- Use LowCardinality
+    channel LowCardinality(String),       -- Use LowCardinality
+    sentiment LowCardinality(String),     -- Use LowCardinality
+    sentiment_score Int8,                 -- Derived (-1, 0, 1)
+    description String,
+    status LowCardinality(String),        -- Use LowCardinality
+    resolution_details String,
+    resolution_time_days Nullable(UInt32), -- Derived
+    is_resolved UInt8                   -- Derived (0 for false, 1 for true)
+) ENGINE = MergeTree()
+PARTITION BY toYYYYMM(feedback_date) -- Partition by year-month
+ORDER BY (feedback_date, retailer_id); -- Order by common filter/join columns
+
+
+-- 5. Data Cleansing and Transformation (INSERT INTO CURATED FROM RAW)
+-- These INSERT statements will read from the raw S3 tables, apply transformations,
+-- and load data into the curated tables.
+-- You would typically run these periodically (e.g., via Cron jobs or a scheduler).
+-- The `GROUP BY` clause handles potential duplicates in raw S3 data and ensures
+-- only one record per primary key is inserted into `ReplacingMergeTree` tables.
+
+-- Populate dim_products
+INSERT INTO dim_products SELECT
+    toUInt32OrNull(trim(CAST(product_id AS String))),
+    trim(CAST(product_name AS String)),
+    multiIf(
+        category IN ('Cereal', 'Snack', 'Beverage'), initCap(trim(CAST(category AS String))),
+        'Other' -- Default category if not in the list
+    ) AS category_clean,
+    initCap(trim(CAST(brand AS String))),
+    toUInt32OrNull(trim(CAST(pack_size_g_ml AS String))),
+    toFloat64OrNull(trim(CAST(base_unit_price AS String))),
+    multiIf(lower(trim(CAST(is_promotional_item AS String))) = 'true', 1, 0) AS is_promotional_item_clean,
+    CASE
+        WHEN toUInt32OrNull(trim(CAST(pack_size_g_ml AS String))) <= 50 THEN 'Small'
+        WHEN toUInt32OrNull(trim(CAST(pack_size_g_ml AS String))) > 50 AND toUInt32OrNull(trim(CAST(pack_size_g_ml AS String))) <= 300 THEN 'Medium'
+        WHEN toUInt32OrNull(trim(CAST(pack_size_g_ml AS String))) > 300 THEN 'Large'
+        ELSE 'Unknown'
+    END AS pack_size_category
+FROM raw_products
+GROUP BY product_id, product_name, category, brand, pack_size_g_ml, base_unit_price, is_promotional_item;
+
+-- Populate dim_retailers
+INSERT INTO dim_retailers SELECT
+    toInt32OrNull(trim(toString(retailer_id))),
+    trim(retailer_name),
+    initCap(trim(retailer_type)),
+    initCap(trim(retailer_city)),
+    trim(toString(retailer_pincode)),
+    toFloat64OrNull(trim(toString(retailer_latitude))),
+    toFloat64OrNull(trim(toString(retailer_longitude))),
+    trim(contact_person),
+    CASE
+        WHEN lower(trim(retailer_city)) IN ('hyderabad', 'hanamkonda', 'secunderabad', 'cyberabad') THEN 'Hyderabad Metro'
+        WHEN lower(trim(retailer_city)) IN ('warangal', 'karimnagar', 'nizamabad') THEN 'North Telangana'
+        WHEN lower(trim(retailer_city)) IN ('mahabubnagar', 'nalgonda', 'khammam') THEN 'South Telangana'
+        ELSE 'Other Telangana'
+    END AS retailer_region,
+    'Standard' AS retailer_tier -- Placeholder, could be derived from sales volume or other business rules
+FROM raw_retailers
+GROUP BY retailer_id, retailer_name, retailer_type, retailer_city, retailer_pincode, retailer_latitude, retailer_longitude, contact_person;
+
+-- Populate dim_promotions
+INSERT INTO dim_promotions SELECT
+    toInt32OrNull(trim(toString(promotion_id))),
+    trim(promotion_name),
+    toDateOrNull(trim(toString(start_date))),
+    toDateOrNull(trim(toString(end_date))),
+    toFloat32OrNull(trim(toString(discount_percentage))),
+    toInt32OrNull(trim(toString(min_qty_for_promo))),
+    toInt32OrNull(trim(toString(applicable_product_id))),
+    if(trim(applicable_category) = '', NULL, trim(applicable_category)) AS applicable_category_clean,
+    if(toDateOrNull(trim(toString(start_date))) IS NOT NULL AND toDateOrNull(trim(toString(end_date))) IS NOT NULL,
+       dateDiff('day', toDate(trim(toString(start_date))), toDate(trim(toString(end_date)))),
+       0) AS promotion_duration_days,
+    CASE
+        WHEN applicable_product_id IS NOT NULL AND trim(toString(applicable_product_id)) != '' THEN 'Product Specific'
+        WHEN applicable_category IS NOT NULL AND trim(applicable_category) != '' THEN 'Category Specific'
+        ELSE 'General'
+    END AS promotion_scope
+FROM raw_promotions
+GROUP BY promotion_id, promotion_name, start_date, end_date, discount_percentage, min_qty_for_promo, applicable_product_id, applicable_category;
+
+
+-- Populate fact_sales
+-- This assumes dim tables are already populated.
+-- For incremental loads, you would typically add a date filter on raw_sales
+-- (e.g., WHERE toDate(trim(s.sale_date)) >= 'YYYY-MM-DD').
+INSERT INTO fact_sales SELECT
+    toInt64OrNull(trim(toString(s.sale_id))),
+    toInt32OrNull(trim(toString(s.retailer_id))),
+    toInt32OrNull(trim(toString(s.product_id))),
+    toInt32OrNull(trim(toString(s.promotion_id))),
+    toDateOrNull(trim(toString(s.sale_date))),
+    toYear(toDateOrNull(trim(toString(s.sale_date)))) AS sale_year,
+    toMonth(toDateOrNull(trim(toString(s.sale_date)))) AS sale_month,
+    toQuarter(toDateOrNull(trim(toString(s.sale_date)))) AS sale_quarter,
+    toDayOfWeek(toDateOrNull(trim(toString(s.sale_date)))) AS sale_day_of_week,
+    toDayOfMonth(toDateOrNull(trim(toString(s.sale_date)))) AS sale_day_of_month,
+    toWeek(toDateOrNull(trim(toString(s.sale_date)))) AS sale_week_of_year,
+    multiIf(toDayOfWeek(toDateOrNull(trim(toString(s.sale_date)))) IN (6, 7), 1, 0) AS is_weekend_sale, -- Saturday=6, Sunday=7 in ClickHouse
+    0 AS is_holiday_period_sale, -- Placeholder, requires dim_date or external lookup
+    toInt32OrNull(trim(toString(s.quantity_sold))),
+    toFloat64OrNull(trim(toString(s.unit_selling_price))),
+    toFloat64OrNull(trim(toString(s.gross_sale_value))),
+    toFloat64OrNull(trim(toString(s.discount_amount))),
+    toFloat64OrNull(trim(toString(s.net_sale_value))),
+    -- Derived: Gross Profit
+    if(toFloat64OrNull(trim(toString(s.net_sale_value))) IS NOT NULL AND toInt32OrNull(trim(toString(s.quantity_sold))) IS NOT NULL AND dp.base_unit_price IS NOT NULL,
+       (toFloat64(trim(toString(s.net_sale_value))) - (toInt32(trim(toString(s.quantity_sold))) * dp.base_unit_price)),
+       NULL) AS gross_profit,
+    -- Derived: Sales per Unit
+    if(toFloat64OrNull(trim(toString(s.net_sale_value))) IS NOT NULL AND toInt32OrNull(trim(toString(s.quantity_sold))) != 0,
+       (toFloat64(trim(toString(s.net_sale_value))) / toInt32(trim(toString(s.quantity_sold)))),
+       NULL) AS sales_per_unit,
+    -- Derived: Discount Rate Applied
+    if(toFloat64OrNull(trim(toString(s.gross_sale_value))) != 0,
+       (toFloat64(trim(toString(s.discount_amount))) / toFloat64(trim(toString(s.gross_sale_value)))) * 100,
+       0) AS discount_rate_applied,
+    initCap(trim(s.payment_method)),
+    initCap(trim(s.distribution_channel)),
+    trim(s.invoice_number)
+FROM s3_sales_raw AS s
+LEFT JOIN dim_products AS dp ON toInt32OrNull(trim(toString(s.product_id))) = dp.product_id
+LEFT JOIN dim_retailers AS dr ON toInt32OrNull(trim(toString(s.retailer_id))) = dr.retailer_id
+LEFT JOIN dim_promotions AS dpr ON toInt32OrNull(trim(toString(s.promotion_id))) = dpr.promotion_id;
+
+
+-- Populate fact_retailer_feedback
+-- For incremental loads, you would typically add a date filter on s3_feedback_raw.
+INSERT INTO fact_retailer_feedback SELECT
+    toInt64OrNull(trim(toString(f.feedback_id))),
+    toInt32OrNull(trim(toString(f.retailer_id))),
+    toInt32OrNull(trim(toString(f.product_id))),
+    toInt64OrNull(trim(toString(f.sale_id))),
+    toDateOrNull(trim(toString(f.feedback_date))),
+    toYear(toDateOrNull(trim(toString(f.feedback_date)))) AS feedback_year,
+    toMonth(toDateOrNull(trim(toString(f.feedback_date)))) AS feedback_month,
+    initCap(trim(f.feedback_type)),
+    initCap(trim(f.channel)),
+    initCap(trim(f.sentiment)),
+    -- Derived: Sentiment Score (-1 for Negative, 0 for Neutral, 1 for Positive)
+    multiIf(
+        lower(trim(f.sentiment)) = 'positive', 1,
+        lower(trim(f.sentiment)) = 'neutral', 0,
+        lower(trim(f.sentiment)) = 'negative', -1,
+        NULL
+    ) AS sentiment_score,
+    trim(f.description),
+    initCap(trim(f.status)),
+    trim(f.resolution_details),
+    -- Derived: Resolution Time (Days) - Assuming resolution_date is today() if status is resolved/closed
+    if(lower(trim(f.status)) IN ('resolved', 'closed') AND toDateOrNull(trim(toString(f.feedback_date))) IS NOT NULL,
+       dateDiff('day', toDate(trim(toString(f.feedback_date))), today()),
+       NULL) AS resolution_time_days,
+    -- Derived: Is_Resolved (0 for false, 1 for true)
+    multiIf(lower(trim(f.status)) IN ('resolved', 'closed'), 1, 0) AS is_resolved
+FROM s3_feedback_raw AS f
+LEFT JOIN dim_retailers AS dr ON toInt32OrNull(trim(toString(f.retailer_id))) = dr.retailer_id
+LEFT JOIN dim_products AS dp ON toInt32OrNull(trim(toString(f.product_id))) = dp.product_id;
+-- 6. Verify Data in Curated Tables (Optional)
+-- SELECT COUNT(*) FROM dim_products;
+-- SELECT COUNT(*) FROM dim_retailers;
+-- SELECT COUNT(*) FROM dim_promotions;
+-- SELECT COUNT(*) FROM fact_sales;
+-- SELECT COUNT(*) FROM fact_retailer_feedback;
+
+-- SELECT * FROM fact_sales LIMIT 10;
+-- SELECT * FROM fact_retailer_feedback LIMIT 10;
+
+
+-- 7. Create Analytical Views for Grafana Consumption (100+ Views Strategy)
+-- These views simplify complex joins and provide pre-defined metrics for various business needs.
+-- Materialized Views (MVs) can be created for heavily used aggregates for performance.
+
+-- View 1: V_SALES_PERFORMANCE (Comprehensive Sales Data with Dimensions)
+-- Joins fact_sales with all relevant dimensions for detailed sales analysis.
+CREATE OR REPLACE VIEW V_SALES_PERFORMANCE AS
+SELECT
+    fs.sale_id,
+    fs.sale_date,
+    fs.sale_year,
+    fs.sale_month,
+    fs.sale_quarter,
+    fs.sale_day_of_week,
+    fs.sale_day_of_month,
+    fs.sale_week_of_year,
+    fs.is_weekend_sale,
+    fs.is_holiday_period_sale,
+    fs.quantity_sold,
+    fs.unit_selling_price,
+    fs.gross_sale_value,
+    fs.discount_amount,
+    fs.net_sale_value,
+    fs.gross_profit,
+    fs.sales_per_unit,
+    fs.discount_rate_applied,
+    fs.payment_method,
+    fs.distribution_channel,
+    fs.invoice_number,
+    -- Retailer Dimensions
+    dr.retailer_id,
+    dr.retailer_name,
+    dr.retailer_type,
+    dr.retailer_city,
+    dr.retailer_pincode,
+    dr.retailer_latitude,
+    dr.retailer_longitude,
+    dr.contact_person,
+    dr.retailer_region,
+    dr.retailer_tier,
+    -- Product Dimensions
+    dp.product_id,
+    dp.product_name,
+    dp.category,
+    dp.brand,
+    dp.pack_size_g_ml,
+    dp.base_unit_price,
+    dp.is_promotional_item,
+    dp.pack_size_category,
+    -- Promotion Dimensions
+    dpr.promotion_id,
+    dpr.promotion_name,
+    dpr.start_date AS promotion_start_date,
+    dpr.end_date AS promotion_end_date,
+    dpr.discount_percentage AS promotion_discount_percentage,
+    dpr.min_qty_for_promo,
+    dpr.applicable_product_id AS promotion_applicable_product_id,
+    dpr.applicable_category AS promotion_applicable_category,
+    dpr.promotion_duration_days,
+    dpr.promotion_scope
+FROM fact_sales fs
+LEFT JOIN dim_retailers dr ON fs.retailer_id = dr.retailer_id
+LEFT JOIN dim_products dp ON fs.product_id = dp.product_id
+LEFT JOIN dim_promotions dpr ON fs.promotion_id = dpr.promotion_id;
+
+
+-- View 2: V_RETAILER_FEEDBACK_SUMMARY (Comprehensive Feedback Data with Dimensions)
+-- Joins fact_retailer_feedback with relevant dimensions.
+CREATE OR REPLACE VIEW V_RETAILER_FEEDBACK_SUMMARY AS
+SELECT
+    frf.feedback_id,
+    frf.feedback_date,
+    frf.feedback_year,
+    frf.feedback_month,
+    frf.feedback_type,
+    frf.channel,
+    frf.sentiment,
+    frf.sentiment_score,
+    frf.description,
+    frf.status,
+    frf.resolution_details,
+    frf.resolution_time_days,
+    frf.is_resolved,
+    -- Retailer Dimensions
+    dr.retailer_id,
+    dr.retailer_name,
+    dr.retailer_type,
+    dr.retailer_city,
+    dr.retailer_pincode,
+    dr.retailer_latitude,
+    dr.retailer_longitude,
+    dr.contact_person,
+    dr.retailer_region,
+    dr.retailer_tier,
+    -- Product Dimensions (if feedback is product-specific)
+    dp.product_id,
+    dp.product_name,
+    dp.category,
+    dp.brand,
+    dp.pack_size_category,
+    -- Associated Sale Information (if feedback is sale-specific)
+    fs.net_sale_value AS associated_sale_value
+FROM fact_retailer_feedback frf
+LEFT JOIN dim_retailers dr ON frf.retailer_id = dr.retailer_id
+LEFT JOIN dim_products dp ON frf.product_id = dp.product_id
+LEFT JOIN fact_sales fs ON frf.sale_id = fs.sale_id;
+
+
+-- View 3: V_DAILY_SALES_AGGREGATE (Example Materialized View for Daily Sales)
+-- This MV will automatically aggregate daily sales, ideal for time-series charts.
+-- You can query this view directly from Grafana for fast daily sales trends.
+CREATE MATERIALIZED VIEW IF NOT EXISTS mv_daily_sales_aggregate
+ENGINE = SummingMergeTree()
+PARTITION BY toYYYYMM(sale_date)
+ORDER BY sale_date
+POPULATE -- Populates with existing data at creation time
+AS
+SELECT
+    sale_date,
+    sum(net_sale_value) AS total_net_sales,
+    sum(gross_profit) AS total_gross_profit,
+    sum(quantity_sold) AS total_quantity_sold,
+    count(sale_id) AS total_transactions
+FROM fact_sales
+GROUP BY sale_date;-- View 4: V_MONTHLY_SALES_AGGREGATE (Example Materialized View for Monthly Sales)
+-- Builds on daily MV for efficiency.
+CREATE MATERIALIZED VIEW IF NOT EXISTS mv_monthly_sales_aggregate
+ENGINE = SummingMergeTree()
+PARTITION BY toYYYYMM(month_start_date)
+ORDER BY month_start_date
+POPULATE
+AS
+SELECT
+    toStartOfMonth(sale_date) AS month_start_date,
+    sum(total_net_sales) AS total_net_sales,
+    sum(total_gross_profit) AS total_gross_profit,
+    sum(total_quantity_sold) AS total_quantity_sold,
+    sum(total_transactions) AS total_transactions
+FROM mv_daily_sales_aggregate
+GROUP BY month_start_date;
+-- View 5: V_QUARTERLY_SALES_AGGREGATE (Standard View on Monthly MV)
+CREATE OR REPLACE VIEW V_QUARTERLY_SALES_AGGREGATE AS
+SELECT
+    toStartOfQuarter(month_start_date) AS quarter_start_date,
+    toYear(month_start_date) AS sales_year,
+    toQuarter(month_start_date) AS sales_quarter,
+    sum(total_net_sales) AS total_net_sales,
+    sum(total_gross_profit) AS total_gross_profit,
+    sum(total_quantity_sold) AS total_quantity_sold
+FROM mv_monthly_sales_aggregate
+GROUP BY quarter_start_date, sales_year, sales_quarter
+ORDER BY quarter_start_date;
+
+-- View 6: V_YTD_SALES_AGGREGATE (Standard View for Year-to-Date Sales)
+CREATE OR REPLACE VIEW V_YTD_SALES_AGGREGATE AS
+SELECT
+    toYear(month_start_date) AS sales_year,
+    sum(total_net_sales) AS ytd_net_sales,
+    sum(total_gross_profit) AS ytd_gross_profit,
+    sum(total_quantity_sold) AS ytd_quantity_sold
+FROM mv_monthly_sales_aggregate
+WHERE month_start_date <= toStartOfMonth(today()) -- Up to the beginning of the current month
+GROUP BY sales_year
+ORDER BY sales_year;
+
+
+-- View 7: V_TOP_PRODUCTS_BY_SALES (Top Products by Net Sales)
+-- This view can be filtered by date range in Grafana.
+CREATE OR REPLACE VIEW V_TOP_PRODUCTS_BY_SALES AS
+SELECT
+    dp.product_name,
+    dp.category,
+    dp.brand,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.quantity_sold) AS total_quantity_sold
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY dp.product_name, dp.category, dp.brand
+ORDER BY total_net_sales DESC;
+
+
+-- View 8: V_SALES_BY_RETAILER_TYPE_REGION (Sales Breakdown by Retailer Attributes)
+CREATE OR REPLACE VIEW V_SALES_BY_RETAILER_TYPE_REGION AS
+SELECT
+    dr.retailer_type,
+    dr.retailer_region,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.quantity_sold) AS total_quantity_sold,
+    count(DISTINCT fs.retailer_id) AS distinct_retailers
+FROM fact_sales AS fs
+JOIN dim_retailers AS dr ON fs.retailer_id = dr.retailer_id
+GROUP BY dr.retailer_type, dr.retailer_region
+ORDER BY dr.retailer_type, total_net_sales DESC;
+
+
+-- View 9: V_PROMOTIONAL_SALES_ANALYSIS (Impact of Promotions)
+CREATE OR REPLACE VIEW V_PROMOTIONAL_SALES_ANALYSIS AS
+SELECT
+    if(fs.promotion_id IS NOT NULL, 'Promotional', 'Non-Promotional') AS sales_type,
+    dpr.promotion_name,
+    dpr.promotion_scope,
+    fs.sale_year,
+    fs.sale_month,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.quantity_sold) AS total_quantity_sold,
+    avg(fs.discount_rate_applied) AS avg_discount_rate_percent
+FROM fact_sales AS fs
+LEFT JOIN dim_promotions AS dpr ON fs.promotion_id = dpr.promotion_id
+GROUP BY sales_type, dpr.promotion_name, dpr.promotion_scope, fs.sale_year, fs.sale_month
+ORDER BY sales_type DESC, fs.sale_year, fs.sale_month;
+
+
+-- View 10: V_FEEDBACK_SENTIMENT_TREND (Monthly Sentiment Trends)
+CREATE OR REPLACE VIEW V_FEEDBACK_SENTIMENT_TREND AS
+SELECT
+    feedback_year,
+    feedback_month,
+    sentiment,
+    count(feedback_id) AS feedback_count,
+    avg(sentiment_score) AS average_sentiment_score,
+    round(countIf(is_resolved = 1) / count(feedback_id) * 100, 2) AS resolution_rate_percent
+FROM fact_retailer_feedback
+GROUP BY feedback_year, feedback_month, sentiment
+ORDER BY feedback_year, feedback_month, sentiment;
+
+
+-- View 11: V_PRODUCT_PROFITABILITY (Gross Profit per Unit)
+CREATE OR REPLACE VIEW V_PRODUCT_PROFITABILITY AS
+SELECT
+    dp.product_name,
+    dp.category,
+    dp.brand,
+    sum(fs.gross_profit) AS total_gross_profit,
+    sum(fs.quantity_sold) AS total_quantity_sold,
+    if(sum(fs.quantity_sold) != 0, sum(fs.gross_profit) / sum(fs.quantity_sold), 0) AS gross_profit_per_unit
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY dp.product_name, dp.category, dp.brand
+ORDER BY gross_profit_per_unit DESC;
+
+
+-- View 12: V_RETAILER_PERFORMANCE_OVERVIEW (Sales and Feedback Combined)
+CREATE OR REPLACE VIEW V_RETAILER_PERFORMANCE_OVERVIEW AS
+SELECT
+    dr.retailer_id,
+    dr.retailer_name,
+    dr.retailer_type,
+    dr.retailer_city,
+    dr.retailer_region,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.gross_profit) AS total_gross_profit,
+    count(DISTINCT fs.sale_id) AS total_transactions,
+    avg(frf.sentiment_score) AS average_feedback_sentiment,
+    count(frf.feedback_id) AS total_feedback_count,
+    round(countIf(frf.is_resolved = 1) / count(frf.feedback_id) * 100, 2) AS feedback_resolution_rate_percent
+FROM dim_retailers AS dr
+LEFT JOIN fact_sales AS fs ON dr.retailer_id = fs.retailer_id
+LEFT JOIN fact_retailer_feedback AS frf ON dr.retailer_id = frf.retailer_id
+GROUP BY dr.retailer_id, dr.retailer_name, dr.retailer_type, dr.retailer_city, dr.retailer_region
+ORDER BY total_net_sales DESC;
+
+
+-- New Views (30+ additional views)
+
+-- SALES PERFORMANCE VIEWS (Daily, Monthly, Quarterly, YTD, Trends)
+-- View 13: V_DAILY_SALES_BY_CATEGORY
+CREATE OR REPLACE VIEW V_DAILY_SALES_BY_CATEGORY AS
+SELECT
+    fs.sale_date,
+    dp.category,
+    sum(fs.net_sale_value) AS daily_net_sales,
+    sum(fs.quantity_sold) AS daily_quantity_sold
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY fs.sale_date, dp.category
+ORDER BY fs.sale_date, dp.category;
+
+-- View 14: V_MONTHLY_SALES_BY_BRAND
+CREATE OR REPLACE VIEW V_MONTHLY_SALES_BY_BRAND AS
+SELECT
+    toStartOfMonth(fs.sale_date) AS month_start_date,
+    dp.brand,
+    sum(fs.net_sale_value) AS monthly_net_sales,
+    sum(fs.quantity_sold) AS monthly_quantity_sold
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY month_start_date, dp.brand
+ORDER BY month_start_date, dp.brand;
+
+-- View 15: V_SALES_BY_PAYMENT_METHOD_DAILY
+CREATE OR REPLACE VIEW V_SALES_BY_PAYMENT_METHOD_DAILY AS
+SELECT
+    sale_date,
+    payment_method,
+    sum(net_sale_value) AS daily_net_sales,
+    count(sale_id) AS daily_transactions
+FROM fact_sales
+GROUP BY sale_date, payment_method
+ORDER BY sale_date, payment_method;
+
+-- View 16: V_SALES_BY_DISTRIBUTION_CHANNEL_MONTHLY
+CREATE OR REPLACE VIEW V_SALES_BY_DISTRIBUTION_CHANNEL_MONTHLY AS
+SELECT
+    toStartOfMonth(sale_date) AS month_start_date,
+    distribution_channel,
+    sum(net_sale_value) AS monthly_net_sales,
+    count(sale_id) AS monthly_transactions
+FROM fact_sales
+GROUP BY month_start_date, distribution_channel
+ORDER BY month_start_date, distribution_channel;
+
+-- View 17: V_TOP_N_RETAILERS_BY_SALES_MONTHLY (Top 10 by default, can filter in Grafana)
+CREATE OR REPLACE VIEW V_TOP_N_RETAILERS_BY_SALES_MONTHLY AS
+SELECT
+    toStartOfMonth(fs.sale_date) AS month_start_date,
+    dr.retailer_name,
+    sum(fs.net_sale_value) AS monthly_net_sales
+FROM fact_sales AS fs
+JOIN dim_retailers AS dr ON fs.retailer_id = dr.retailer_id
+GROUP BY month_start_date, dr.retailer_name
+ORDER BY month_start_date DESC, monthly_net_sales DESC;
+
+-- View 18: V_MOM_SALES_GROWTH
+CREATE OR REPLACE VIEW V_MOM_SALES_GROWTH AS
+WITH MonthlySales AS (
+    SELECT
+        month_start_date,
+        total_net_sales
+    FROM mv_monthly_sales_aggregate
+),
+LaggedSales AS (
+    SELECT
+        month_start_date,
+        total_net_sales,
+        lagInFrame(total_net_sales, 1, 0) OVER (ORDER BY month_start_date) AS previous_month_sales
+    FROM MonthlySales
+)
+SELECT
+    month_start_date,
+    total_net_sales,
+    previous_month_sales,
+    if(previous_month_sales > 0, (total_net_sales - previous_month_sales) / previous_month_sales * 100, 0) AS mom_growth_percent
+FROM LaggedSales
+ORDER BY month_start_date;
+
+-- View 19: V_QOQ_SALES_GROWTH
+CREATE OR REPLACE VIEW V_QOQ_SALES_GROWTH AS
+WITH QuarterlySales AS (
+    SELECT
+        quarter_start_date,
+        total_net_sales
+    FROM V_QUARTERLY_SALES_AGGREGATE
+),
+LaggedSales AS (
+    SELECT
+        quarter_start_date,
+        total_net_sales,
+        lagInFrame(total_net_sales, 1, 0) OVER (ORDER BY quarter_start_date) AS previous_quarter_sales
+    FROM QuarterlySales
+)
+SELECT
+    quarter_start_date,
+    total_net_sales,
+    previous_quarter_sales,
+    if(previous_quarter_sales > 0, (total_net_sales - previous_quarter_sales) / previous_quarter_sales * 100, 0) AS qoq_growth_percent
+FROM LaggedSales
+ORDER BY quarter_start_date;
+
+-- View 20: V_YOY_SALES_GROWTH
+CREATE OR REPLACE VIEW V_YOY_SALES_GROWTH AS
+WITH YearlySales AS (
+    SELECT
+        sales_year,
+        ytd_net_sales
+    FROM V_YTD_SALES_AGGREGATE
+),
+LaggedSales AS (
+    SELECT
+        sales_year,
+        ytd_net_sales,
+        lagInFrame(ytd_net_sales, 1, 0) OVER (ORDER BY sales_year) AS previous_year_sales
+    FROM YearlySales
+)
+SELECT
+    sales_year,
+    ytd_net_sales,
+    previous_year_sales,
+    if(previous_year_sales > 0, (ytd_net_sales - previous_year_sales) / previous_year_sales * 100, 0) AS yoy_growth_percent
+FROM LaggedSales
+ORDER BY sales_year;
+
+-- View 21: V_AVERAGE_TRANSACTION_VALUE_DAILY
+CREATE OR REPLACE VIEW V_AVERAGE_TRANSACTION_VALUE_DAILY AS
+SELECT
+    sale_date,
+    if(total_transactions > 0, total_net_sales / total_transactions, 0) AS average_transaction_value
+FROM mv_daily_sales_aggregate
+ORDER BY sale_date;
+
+-- View 22: V_SALES_BY_HOUR_OF_DAY (Requires DateTime in fact_sales, if available)
+-- Assuming a `sale_datetime` column exists in fact_sales for this.
+-- If not, this view would require raw data to have time component.
+-- For now, using sale_day_of_week as a proxy if no hour data.
+CREATE OR REPLACE VIEW V_SALES_BY_DAY_OF_WEEK AS
+SELECT
+    sale_day_of_week,
+    multiIf(
+        sale_day_of_week = 1, 'Sunday',
+        sale_day_of_week = 2, 'Monday',
+        sale_day_of_week = 3, 'Tuesday',
+        sale_day_of_week = 4, 'Wednesday',
+        sale_day_of_week = 5, 'Thursday',
+        sale_day_of_week = 6, 'Friday',
+        sale_day_of_week = 7, 'Saturday',
+        'Unknown'
+    ) AS day_name,
+    sum(net_sale_value) AS total_net_sales,
+    sum(quantity_sold) AS total_quantity_sold
+FROM fact_sales
+GROUP BY sale_day_of_week
+ORDER BY sale_day_of_week;
+
+-- PRODUCT PERFORMANCE VIEWS
+-- View 23: V_TOP_PRODUCTS_BY_QUANTITY_SOLD
+CREATE OR REPLACE VIEW V_TOP_PRODUCTS_BY_QUANTITY_SOLD AS
+SELECT
+    dp.product_name,
+    dp.category,
+    dp.brand,
+    sum(fs.quantity_sold) AS total_quantity_sold,
+    sum(fs.net_sale_value) AS total_net_sales
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY dp.product_name, dp.category, dp.brand
+ORDER BY total_quantity_sold DESC;
+
+-- View 24: V_TOP_PRODUCTS_BY_GROSS_PROFIT
+CREATE OR REPLACE VIEW V_TOP_PRODUCTS_BY_GROSS_PROFIT AS
+SELECT
+    dp.product_name,
+    dp.category,
+    dp.brand,
+    sum(fs.gross_profit) AS total_gross_profit,
+    sum(fs.net_sale_value) AS total_net_sales
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY dp.product_name, dp.category, dp.brand
+ORDER BY total_gross_profit DESC;
+
+-- View 25: V_PRODUCT_PERFORMANCE_BY_PACK_SIZE_CATEGORY
+CREATE OR REPLACE VIEW V_PRODUCT_PERFORMANCE_BY_PACK_SIZE_CATEGORY AS
+SELECT
+    dp.pack_size_category,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.quantity_sold) AS total_quantity_sold,
+    avg(fs.unit_selling_price) AS avg_unit_selling_price
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY dp.pack_size_category
+ORDER BY total_net_sales DESC;
+
+-- View 26: V_MONTHLY_CATEGORY_SALES
+CREATE OR REPLACE VIEW V_MONTHLY_CATEGORY_SALES AS
+SELECT
+    toStartOfMonth(fs.sale_date) AS month_start_date,
+    dp.category,
+    sum(fs.net_sale_value) AS monthly_net_sales,
+    sum(fs.quantity_sold) AS monthly_quantity_sold
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY month_start_date, dp.category
+ORDER BY month_start_date, dp.category;
+
+-- View 27: V_MONTHLY_BRAND_SALES
+CREATE OR REPLACE VIEW V_MONTHLY_BRAND_SALES AS
+SELECT
+    toStartOfMonth(fs.sale_date) AS month_start_date,
+    dp.brand,
+    sum(fs.net_sale_value) AS monthly_net_sales,
+    sum(fs.quantity_sold) AS monthly_quantity_sold
+FROM fact_sales AS fs
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+GROUP BY month_start_date, dp.brand
+ORDER BY month_start_date, dp.brand;
+
+-- RETAILER INSIGHTS VIEWS
+-- View 28: V_TOP_RETAILERS_BY_SALES (Overall Top Retailers)
+CREATE OR REPLACE VIEW V_TOP_RETAILERS_BY_SALES AS
+SELECT
+    dr.retailer_name,
+    dr.retailer_type,
+    dr.retailer_city,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.quantity_sold) AS total_quantity_sold
+FROM fact_sales AS fs
+JOIN dim_retailers AS dr ON fs.retailer_id = dr.retailer_id
+GROUP BY dr.retailer_name, dr.retailer_type, dr.retailer_city
+ORDER BY total_net_sales DESC;
+
+-- View 29: V_RETAILER_SALES_TREND_MONTHLY
+CREATE OR REPLACE VIEW V_RETAILER_SALES_TREND_MONTHLY AS
+SELECT
+    toStartOfMonth(fs.sale_date) AS month_start_date,
+    dr.retailer_name,
+    sum(fs.net_sale_value) AS monthly_net_sales
+FROM fact_sales AS fs
+JOIN dim_retailers AS dr ON fs.retailer_id = dr.retailer_id
+GROUP BY month_start_date, dr.retailer_name
+ORDER BY month_start_date, monthly_net_sales DESC;
+
+-- View 30: V_SALES_BY_RETAILER_CITY
+CREATE OR REPLACE VIEW V_SALES_BY_RETAILER_CITY AS
+SELECT
+    dr.retailer_city,
+    dr.retailer_region,
+    sum(fs.net_sale_value) AS total_net_sales,
+    sum(fs.quantity_sold) AS total_quantity_sold,
+    count(DISTINCT fs.retailer_id) AS distinct_retailers_in_city
+FROM fact_sales AS fs
+JOIN dim_retailers AS dr ON fs.retailer_id = dr.retailer_id
+GROUP BY dr.retailer_city, dr.retailer_region
+ORDER BY total_net_sales DESC;
+
+-- PROMOTIONS ANALYSIS VIEWS
+-- View 31: V_PROMOTION_EFFECTIVENESS_BY_PRODUCT
+CREATE OR REPLACE VIEW V_PROMOTION_EFFECTIVENESS_BY_PRODUCT AS
+SELECT
+    dpr.promotion_name,
+    dp.product_name,
+    sum(fs.net_sale_value) AS promotional_net_sales,
+    sum(fs.quantity_sold) AS promotional_quantity_sold,
+    avg(fs.discount_rate_applied) AS avg_discount_rate_percent
+FROM fact_sales AS fs
+JOIN dim_promotions AS dpr ON fs.promotion_id = dpr.promotion_id
+JOIN dim_products AS dp ON fs.product_id = dp.product_id
+WHERE fs.promotion_id IS NOT NULL
+GROUP BY dpr.promotion_name, dp.product_name
+ORDER BY promotional_net_sales DESC;
+
+-- View 32: V_TOTAL_DISCOUNT_AMOUNT_DAILY
+CREATE OR REPLACE VIEW V_TOTAL_DISCOUNT_AMOUNT_DAILY AS
+SELECT
+    sale_date,
+    sum(discount_amount) AS total_discount_amount
+FROM fact_sales
+WHERE discount_amount > 0
+GROUP BY sale_date
+ORDER BY sale_date;
+
+-- View 33: V_AVG_DISCOUNT_PERCENTAGE_BY_PROMOTION
+CREATE OR REPLACE VIEW V_AVG_DISCOUNT_PERCENTAGE_BY_PROMOTION AS
+SELECT
+    dpr.promotion_name,
+    avg(fs.discount_rate_applied) AS average_discount_percentage,
+    sum(fs.net_sale_value) AS total_net_sales_under_promo
+FROM fact_sales AS fs
+JOIN dim_promotions AS dpr ON fs.promotion_id = dpr.promotion_id
+WHERE fs.promotion_id IS NOT NULL
+GROUP BY dpr.promotion_name
+ORDER BY average_discount_percentage DESC;
+
+-- FEEDBACK & SENTIMENT ANALYSIS VIEWS (Including "Likes and Comments" aspects)
+-- View 34: V_DAILY_FEEDBACK_COUNT
+CREATE OR REPLACE VIEW V_DAILY_FEEDBACK_COUNT AS
+SELECT
+    feedback_date,
+    count(feedback_id) AS total_feedback_count,
+    countIf(sentiment_score = 1) AS positive_feedback_count,
+    countIf(sentiment_score = -1) AS negative_feedback_count,
+    countIf(sentiment_score = 0) AS neutral_feedback_count
+FROM fact_retailer_feedback
+GROUP BY feedback_date
+ORDER BY feedback_date;
+
+-- View 35: V_MONTHLY_AVERAGE_SENTIMENT_SCORE
+CREATE OR REPLACE VIEW V_MONTHLY_AVERAGE_SENTIMENT_SCORE AS
+SELECT
+    feedback_year,
+    feedback_month,
+    avg(sentiment_score) AS average_sentiment_score
+FROM fact_retailer_feedback
+GROUP BY feedback_year, feedback_month
+ORDER BY feedback_year, feedback_month;
+
+-- View 36: V_PRODUCT_SENTIMENT_SUMMARY (Average sentiment per product)
+CREATE OR REPLACE VIEW V_PRODUCT_SENTIMENT_SUMMARY AS
+SELECT
+    dp.product_name,
+    dp.category,
+    avg(frf.sentiment_score) AS average_sentiment_score,
+    count(frf.feedback_id) AS total_feedback_count,
+    countIf(frf.sentiment_score = 1) AS positive_feedback_count,
+    countIf(frf.sentiment_score = -1) AS negative_feedback_count
+FROM fact_retailer_feedback AS frf
+JOIN dim_products AS dp ON frf.product_id = dp.product_id
+GROUP BY dp.product_name, dp.category
+ORDER BY average_sentiment_score DESC;
+
+-- View 37: V_RETAILER_SENTIMENT_SUMMARY (Average sentiment per retailer)
+CREATE OR REPLACE VIEW V_RETAILER_SENTIMENT_SUMMARY AS
+SELECT
+    dr.retailer_name,
+    dr.retailer_type,
+    avg(frf.sentiment_score) AS average_sentiment_score,
+    count(frf.feedback_id) AS total_feedback_count,
+    countIf(frf.sentiment_score = 1) AS positive_feedback_count,
+    countIf(frf.sentiment_score = -1) AS negative_feedback_count
+FROM fact_retailer_feedback AS frf
+JOIN dim_retailers AS dr ON frf.retailer_id = dr.retailer_id
+GROUP BY dr.retailer_name, dr.retailer_type
+ORDER BY average_sentiment_score DESC;
+
+-- View 38: V_FEEDBACK_RESOLUTION_RATE_TREND
+CREATE OR REPLACE VIEW V_FEEDBACK_RESOLUTION_RATE_TREND AS
+SELECT
+    feedback_year,
+    feedback_month,
+    round(countIf(is_resolved = 1) / count(feedback_id) * 100, 2) AS monthly_resolution_rate_percent,
+    avg(resolution_time_days) AS avg_resolution_time_days
+FROM fact_retailer_feedback
+GROUP BY feedback_year, feedback_month
+ORDER BY feedback_year, feedback_month;
+
+-- View 39: V_UNRESOLVED_FEEDBACK_COUNT
+CREATE OR REPLACE VIEW V_UNRESOLVED_FEEDBACK_COUNT AS
+SELECT
+    feedback_year,
+    feedback_month,
+    count(feedback_id) AS unresolved_feedback_count
+FROM fact_retailer_feedback
+WHERE is_resolved = 0
+GROUP BY feedback_year, feedback_month
+ORDER BY feedback_year, feedback_month;
+
+-- View 40: V_FEEDBACK_BY_CHANNEL
+CREATE OR REPLACE VIEW V_FEEDBACK_BY_CHANNEL AS
+SELECT
+    channel,
+    count(feedback_id) AS total_feedback_count,
+    avg(sentiment_score) AS average_sentiment_score,
+    round(countIf(is_resolved = 1) / count(feedback_id) * 100, 2) AS resolution_rate_percent
+FROM fact_retailer_feedback
+GROUP BY channel
+ORDER BY total_feedback_count DESC;
+
+-- View 41: V_POSITIVE_FEEDBACK_COUNT_BY_PRODUCT (Equivalent to "Likes" for products)
+CREATE OR REPLACE VIEW V_POSITIVE_FEEDBACK_COUNT_BY_PRODUCT AS
+SELECT
+    dp.product_name,
+    dp.category,
+    count(frf.feedback_id) AS positive_feedback_count
+FROM fact_retailer_feedback AS frf
+JOIN dim_products AS dp ON frf.product_id = dp.product_id
+WHERE frf.sentiment_score = 1
+GROUP BY dp.product_name, dp.category
+ORDER BY positive_feedback_count DESC;
+
+-- View 42: V_NEGATIVE_FEEDBACK_COUNT_BY_RETAILER (Equivalent to "Dislikes" for retailers)
+CREATE OR REPLACE VIEW V_NEGATIVE_FEEDBACK_COUNT_BY_RETAILER AS
+SELECT
+    dr.retailer_name,
+    dr.retailer_type,
+    count(frf.feedback_id) AS negative_feedback_count
+FROM fact_retailer_feedback AS frf
+JOIN dim_retailers AS dr ON frf.retailer_id = dr.retailer_id
+WHERE frf.sentiment_score = -1
+GROUP BY dr.retailer_name, dr.retailer_type
+ORDER BY negative_feedback_count DESC;
+
+-- View 43: V_FEEDBACK_DESCRIPTION_SAMPLE (For qualitative analysis of comments)
+-- This view is for sampling comments, not for aggregation. Grafana can use this for tables.
+CREATE OR REPLACE VIEW V_FEEDBACK_DESCRIPTION_SAMPLE AS
+SELECT
+    feedback_date,
+    dr.retailer_name,
+    dp.product_name,
+    sentiment,
+    description,
+    status
+FROM fact_retailer_feedback AS frf
+LEFT JOIN dim_retailers AS dr ON frf.retailer_id = dr.retailer_id
+LEFT JOIN dim_products AS dp ON frf.product_id = dp.product_id
+ORDER BY feedback_date DESC; -- Order by date to get recent comments
+-- LIMIT 100; -- Add a limit in Grafana query for large datasets

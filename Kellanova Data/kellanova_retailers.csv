@@ -1,0 +1,500 @@
+retailer_id,retailer_name,retailer_type,retailer_city,retailer_pincode,retailer_latitude,retailer_longitude,contact_person
+3000,Hyderabad Distributors - Warangal 14,Wholesaler,Warangal,500946,18.2634762,77.3913857,Ganga Dugal
+3001,Nature's Basket - Parmer Circle Mall,National Mall Outlet,Sangareddy,502027,16.7315088,79.181535,Vinaya Jaggi
+3002,Star Bazaar - Wanaparthy 2,Hypermarket,Wanaparthy,505784,18.4898434,79.977944,Tanveer Dora
+3003,Spencer's Retail - Medak 5,Supermarket,Medak,503143,16.6952572,77.3504879,Kevin Nair
+3004,Nature's Basket - Doctor Path Mall,National Mall Outlet,Medak,507787,17.6600945,78.3460659,Balhaar Sahni
+3005,HyperCity - Adilabad 7,Hypermarket,Adilabad,501198,16.8234233,79.5785604,Yuvraj Bhasin
+3006,Hyderabad Distributors - Wanaparthy 10,Wholesaler,Wanaparthy,507559,19.0385818,77.5053282,Chaaya Bhatnagar
+3007,Reliance Smart - Peddapalli 4,Supermarket,Peddapalli,507235,17.4090484,77.5972135,Saanvi Kala
+3008,Star Bazaar - Kothagudem 20,Hypermarket,Kothagudem,501198,16.6137461,80.3086788,Tanvi Upadhyay
+3009,Star Bazaar - Bhongir 17,Hypermarket,Bhongir,503297,19.365072,79.8164422,Ekapad Minhas
+3010,More Supermarket - Suryapet 11,Supermarket,Suryapet,508431,18.2487781,80.0815067,Aishani Deo
+3011,Daily Needs - Deshmukh's,Convenience Store,Peddapalli,502926,19.2031669,78.4047707,Dalaja Hegde
+3012,Gupta Kirana - Baral's,Kirana Store,Suryapet,508424,19.3569917,80.1462039,Sara Muni
+3013,Blinkit - Nizamabad 11,Online Grocer,Nizamabad,505984,16.7817136,80.8870524,Aashi Sachar
+3014,Star Bazaar - Miryalaguda 19,Hypermarket,Miryalaguda,507820,17.0147604,78.0094503,Chandran Singhal
+3015,Hyderabad Distributors - Miryalaguda 11,Wholesaler,Miryalaguda,503286,16.7834301,80.5254665,Jackson Mangat
+3016,Priya Kirana - Tak's,Kirana Store,Peddapalli,509639,18.4421086,78.2404577,Bhanumati Krishnamurthy
+3017,More Supermarket - Adilabad 5,Supermarket,Adilabad,504138,19.1097891,77.0832858,Omya Gole
+3018,Nature's Basket - Hora Street Mall,National Mall Outlet,Sangareddy,508875,16.9908688,77.3928671,Rayaan Sarin
+3019,Local Distributor - Bhongir 18,Wholesaler,Bhongir,506954,17.1843332,78.5949506,Krishna Morar
+3020,Foodhall - Randhawa Ganj Mall,National Mall Outlet,Hyderabad,507801,18.9355202,79.3583242,Avni Virk
+3021,Swiggy Instamart - Khammam 12,Online Grocer,Khammam,503966,18.009801,78.7030737,Vaishnavi Rao
+3022,Ratnadeep Retail - Nizamabad 10,Supermarket,Nizamabad,504138,18.2095266,79.3648433,David Ramaswamy
+3023,Nature's Basket - Master Mall,National Mall Outlet,Ramagundam,501557,18.8219294,79.2894167,Eiravati Bumb
+3024,City Convenience - Natt's,Convenience Store,Hyderabad,505847,17.11646,80.436858,Nirja Karan
+3025,Blinkit - Mahabubnagar 4,Online Grocer,Mahabubnagar,509180,18.7664263,79.0646872,Urvashi Sankar
+3026,HyperCity - Karimnagar 6,Hypermarket,Karimnagar,502220,16.9705875,78.7503288,Raagini Nair
+3027,Marks & Spencer Food - Morar Zila Mall,National Mall Outlet,Miryalaguda,503440,17.4133956,80.9101814,Nandini Saraf
+3028,Daily Needs - Raja's,Convenience Store,Miryalaguda,503086,18.0829209,79.2580138,Pranit Varma
+3029,BigBasket - Medak 14,Online Grocer,Medak,501416,19.0225456,77.7844609,Xavier Brahmbhatt
+3030,Local Distributor - Kothagudem 1,Wholesaler,Kothagudem,500393,17.0698195,80.24019,Nathaniel Bajaj
+3031,Blinkit - Jagtial 6,Online Grocer,Jagtial,509977,18.8443122,78.2001269,Umang Mammen
+3032,Reliance Wholesale - Jagtial 18,Wholesaler,Jagtial,500934,17.6369626,77.5963285,Krisha Banerjee
+3033,More Supermarket - Warangal 3,Supermarket,Warangal,508640,17.2071745,77.8605224,Edhitha Krishnan
+3034,Reliance Wholesale - Karimnagar 15,Wholesaler,Karimnagar,507747,16.9117849,78.7786308,Lavanya Kashyap
+3035,"Bora, Chakrabarti and Tandon Store",Kirana Store,Adilabad,507899,18.5476799,78.5715666,Mekhala Ganguly
+3036,Daily Needs - Naidu's,Convenience Store,Mahabubnagar,501279,18.0426862,78.9832719,Meera Das
+3037,City Convenience - Koshy's,Convenience Store,Mancherial,507944,16.5935065,80.5547526,Chaitanya Rau
+3038,BigBasket - Nalgonda 5,Online Grocer,Nalgonda,507944,18.2625523,78.8198632,Harrison Gupta
+3039,Sharma General Store - Madan's,Kirana Store,Peddapalli,508640,19.1471388,79.1140973,Lipika Batta
+3040,Star Bazaar - Warangal 12,Hypermarket,Warangal,503553,16.500617,80.8072134,Victor Subramanian
+3041,Sharma General Store - Narula's,Kirana Store,Hyderabad,509160,17.5672858,79.5648785,Rayaan Sachdeva
+3042,Saini PLC Store,Kirana Store,Kothagudem,501679,17.5193953,78.8298004,Theodore Raju
+3043,24x7 Store - Sundaram's,Convenience Store,Jagtial,509639,18.5949059,77.9271689,Charvi Shan
+3044,Metro Cash & Carry - Sangareddy 17,Wholesaler,Sangareddy,506885,18.7287353,78.2924904,Libni Gour
+3045,D-Mart - Kothagudem 19,Hypermarket,Kothagudem,507665,16.8672596,78.9963923,Nimrat Dayal
+3046,24x7 Store - Khare's,Convenience Store,Nalgonda,502130,18.8303071,80.8001938,Maya Dua
+3047,Big Bazaar - Jagtial 16,Hypermarket,Jagtial,507665,18.198048,79.7424556,Ishani Sankaran
+3048,"Talwar, Manne and Bahl Store",Convenience Store,Wanaparthy,501160,17.661502,77.0713894,Janaki Mani
+3049,BigBasket - Mancherial 15,Online Grocer,Mancherial,507398,18.1100199,77.6202901,Unni Mann
+3050,Foodhall - Cherian Street Mall,National Mall Outlet,Siddipet,503553,18.9504121,80.838053,Frederick Som
+3051,Sharma General Store - Kade's,Kirana Store,Suryapet,505625,17.5155184,79.0126549,Inaya Chhabra
+3052,Ratnadeep Retail - Hyderabad 13,Supermarket,Hyderabad,506951,19.2439469,79.0070213,Ekanta Ranganathan
+3053,Swiggy Instamart - Siddipet 11,Online Grocer,Siddipet,503143,19.124817,77.8029679,Sara Iyer
+3054,Spencer's Retail - Siddipet 11,Supermarket,Siddipet,503286,19.1754686,78.6953056,Maanas Ray
+3055,Metro Cash & Carry - Wanaparthy 12,Wholesaler,Wanaparthy,504585,16.9544889,80.560854,Neel Venkataraman
+3056,HyperCity - Nizamabad 16,Hypermarket,Nizamabad,508499,19.4058528,79.8676375,Vidhi Varughese
+3057,Big Bazaar - Warangal 18,Hypermarket,Warangal,503086,18.4311179,79.9554407,Zashil Balasubramanian
+3058,Local Corner Shop - Cheema's,Kirana Store,Siddipet,505459,19.3563706,78.5581822,Madhav Sha
+3059,Reliance Wholesale - Kothagudem 10,Wholesaler,Kothagudem,500679,16.5685202,80.3801357,Champak Wali
+3060,Reliance Smart - Khammam 19,Supermarket,Khammam,502095,17.7005812,79.4066173,Anirudh Sahota
+3061,Foodhall - Sathe Ganj Mall,National Mall Outlet,Hyderabad,506954,17.8251958,80.4932535,Falguni Yohannan
+3062,Reliance Smart - Karimnagar 7,Supermarket,Karimnagar,503799,18.4496042,80.2390007,Aayush Karnik
+3063,Express Mart - Ratti's,Convenience Store,Wanaparthy,505012,18.2574597,77.2041472,Zansi Mistry
+3064,"Srinivasan, Borde and Hayer Store",Kirana Store,Wanaparthy,505441,17.2117342,80.845232,Balhaar Prakash
+3065,Foodhall - Borah Ganj Mall,National Mall Outlet,Jagtial,506885,17.6468542,80.8832828,Adya Bedi
+3066,Foodhall - Rajagopal Zila Mall,National Mall Outlet,Kothagudem,501635,18.2143644,79.785112,Priya Pant
+3067,Ratnadeep Retail - Suryapet 6,Supermarket,Suryapet,507787,19.3681379,79.539093,Chakrika Tank
+3068,"Mane, Goyal and Issac Store",Convenience Store,Bhongir,506850,17.2244409,79.1171748,Vihaan Palan
+3069,Swiggy Instamart - Peddapalli 11,Online Grocer,Peddapalli,500992,17.5963015,80.88641,Ekaraj Sachar
+3070,Foodhall - Deshpande Zila Mall,National Mall Outlet,Kothagudem,508875,16.6781594,79.8768107,Chanakya Pal
+3071,BigBasket - Mahabubnagar 2,Online Grocer,Mahabubnagar,505436,16.5142134,78.5659061,Gabriel Dutt
+3072,Metro Cash & Carry - Mancherial 11,Wholesaler,Mancherial,507559,17.3031506,78.6447635,Saumya Munshi
+3073,Big Bazaar - Medak 16,Hypermarket,Medak,500453,16.8387457,77.6119165,Gunbir Srinivas
+3074,Reliance Wholesale - Karimnagar 1,Wholesaler,Karimnagar,501042,18.1355924,78.0579425,Noah Vyas
+3075,Foodhall - Kadakia Zila Mall,National Mall Outlet,Mancherial,508640,16.851323,80.0174954,Meghana Bhatti
+3076,D-Mart - Wanaparthy 4,Hypermarket,Wanaparthy,508853,16.5075189,77.5561128,Amaira Sinha
+3077,Swiggy Instamart - Suryapet 15,Online Grocer,Suryapet,507339,17.5242403,78.577637,Anusha Tata
+3078,Dua LLC Store,Kirana Store,Medak,501326,19.1579549,77.3522588,Gagan Karnik
+3079,Metro Cash & Carry - Kothagudem 13,Wholesaler,Kothagudem,506260,18.901297,77.9896516,Aadhya Wason
+3080,Purohit-Sahni Store,Convenience Store,Suryapet,506885,16.9127595,77.7716253,Falguni Chacko
+3081,Star Bazaar - Khammam 1,Hypermarket,Khammam,501557,17.303856,77.0884776,Zaid Kala
+3082,Ahuja-Uppal Store,Kirana Store,Hyderabad,506260,17.9511661,78.1984689,Krish Sachdeva
+3083,Local Corner Shop - Varghese's,Kirana Store,Nizamabad,507235,17.64842,77.8020187,Girik Pal
+3084,Nature's Basket - Rege Nagar Mall,National Mall Outlet,Nizamabad,509180,18.2282552,77.929323,Shivani Prabhu
+3085,Reliance Smart - Adilabad 5,Supermarket,Adilabad,509160,16.9037054,80.3213803,Frederick Khosla
+3086,24x7 Store - Biswas's,Convenience Store,Miryalaguda,500679,18.7817429,78.9205048,Zilmil Gopal
+3087,Walla and Sons Store,Convenience Store,Karimnagar,505012,18.5381543,79.0193415,Utkarsh Agate
+3088,Local Distributor - Ramagundam 15,Wholesaler,Ramagundam,503286,17.1344099,77.7165915,Abdul Palla
+3089,24x7 Store - Maharaj's,Convenience Store,Hyderabad,506951,18.493501,79.5188162,Aarna Tella
+3090,Foodhall - Nadkarni Street Mall,National Mall Outlet,Karimnagar,507339,18.7807844,77.29615,Hredhaan Golla
+3091,Local Corner Shop - Gulati's,Kirana Store,Nizamabad,502147,17.0013549,80.3151737,Girish Chaudhry
+3092,Ratnadeep Retail - Nizamabad 8,Supermarket,Nizamabad,505012,18.033481,80.5315255,Nidhi Goel
+3093,More Supermarket - Adilabad 3,Supermarket,Adilabad,502027,16.7529227,79.5700944,Bhavya Bhakta
+3094,Foodhall - Sabharwal Nagar Mall,National Mall Outlet,Nalgonda,503286,17.1802609,79.7252939,Siya Deshmukh
+3095,Big Bazaar - Medak 11,Hypermarket,Medak,509160,19.2317425,78.9673173,Reyansh Ramachandran
+3096,HyperCity - Nizamabad 10,Hypermarket,Nizamabad,507801,19.2675455,77.2745805,Isha Doshi
+3097,Star Bazaar - Ramagundam 2,Hypermarket,Ramagundam,509160,18.7102609,80.7351837,Eta Ahuja
+3098,Nature's Basket - Sankar Chowk Mall,National Mall Outlet,Kothagudem,501160,18.3387259,77.207782,Ikshita Anne
+3099,Local Corner Shop - Sane's,Kirana Store,Suryapet,507339,18.1803919,78.4311704,Panini Ganesan
+3100,Gupta Kirana - Dyal's,Kirana Store,Peddapalli,500101,16.5547839,79.2817747,Samuel Goel
+3101,Metro Cash & Carry - Hyderabad 15,Wholesaler,Hyderabad,507787,18.0979,77.6137585,Gaurang Dani
+3102,Ratnadeep Retail - Karimnagar 20,Supermarket,Karimnagar,504971,19.0026214,77.5755124,Bimala Cherian
+3103,Ratnadeep Retail - Bhongir 6,Supermarket,Bhongir,503143,19.4416372,78.070837,Bakhshi Mandal
+3104,D-Mart - Peddapalli 19,Hypermarket,Peddapalli,502014,18.5459117,77.4527312,Umang Ganesh
+3105,BigBasket - Siddipet 20,Online Grocer,Siddipet,508431,16.7087609,80.1952891,Charvi Chada
+3106,Swiggy Instamart - Nizamabad 11,Online Grocer,Nizamabad,500934,17.3387741,77.2986373,Ayush Memon
+3107,JioMart - Ramagundam 19,Online Grocer,Ramagundam,500393,18.22378,79.9449982,Yochana Sant
+3108,Reliance Wholesale - Adilabad 17,Wholesaler,Adilabad,501860,17.2686885,78.5552791,Upkaar Shenoy
+3109,Nature's Basket - Iyengar Ganj Mall,National Mall Outlet,Karimnagar,502405,17.6254366,79.5405048,Upma Dixit
+3110,D-Mart - Kothagudem 6,Hypermarket,Kothagudem,506529,18.2105753,78.6070127,Yagnesh Bhatti
+3111,Spencer's Retail - Sangareddy 6,Supermarket,Sangareddy,502145,18.7556174,80.8558691,Vasatika Sur
+3112,Bhatnagar-Varma Store,Kirana Store,Mancherial,503966,18.5069241,78.2671065,Bahadurjit Pai
+3113,Zepto - Sangareddy 18,Online Grocer,Sangareddy,501198,17.1657637,79.5621772,Nisha Bali
+3114,"Contractor, Kuruvilla and Subramaniam Store",Kirana Store,Khammam,505984,18.5442584,80.3012322,Theodore Prabhu
+3115,Kota and Sons Store,Kirana Store,Nizamabad,503143,18.6892713,77.6017552,Nachiket Ganguly
+3116,Om Stores - Rege's,Kirana Store,Sangareddy,505436,18.7294856,78.1582271,Nidhi Chand
+3117,Chandran-Bandi Store,Convenience Store,Nalgonda,507944,18.5563259,79.1701357,David Kothari
+3118,Foodhall - Datta Chowk Mall,National Mall Outlet,Medak,501042,17.3539619,77.5803035,Neelima Sem
+3119,Express Mart - Raj's,Convenience Store,Bhongir,509957,17.7300571,79.6109989,Chaitaly Rajagopal
+3120,Nature's Basket - Sant Zila Mall,National Mall Outlet,Khammam,508875,17.7805947,78.0371123,Luke Parsa
+3121,Foodhall - Din Circle Mall,National Mall Outlet,Kothagudem,509180,17.7357382,79.908413,Abdul Kashyap
+3122,Om Stores - Bajwa's,Kirana Store,Nizamabad,509624,16.8688222,79.4192415,Anika Dasgupta
+3123,Big Bazaar - Suryapet 1,Hypermarket,Suryapet,509624,17.7446472,78.5869692,Tanmayi Hayre
+3124,24x7 Store - Master's,Convenience Store,Wanaparthy,507665,18.8217768,78.0974881,Tamanna Murty
+3125,Nature's Basket - Krish Road Mall,National Mall Outlet,Suryapet,508853,16.6254955,80.2970902,Naksh Kadakia
+3126,Blinkit - Nizamabad 2,Online Grocer,Nizamabad,508875,18.2615674,79.0035858,Sanaya Sekhon
+3127,Reliance Wholesale - Adilabad 5,Wholesaler,Adilabad,508738,18.5797517,79.9733568,Lakshit Som
+3128,Om Stores - Badami's,Kirana Store,Suryapet,506325,17.4395737,78.7531642,Tamanna Bandi
+3129,BigBasket - Bhongir 11,Online Grocer,Bhongir,503553,18.3008589,80.6574193,Meera Dasgupta
+3130,More Supermarket - Mahabubnagar 12,Supermarket,Mahabubnagar,502130,17.8865315,77.8075843,Ria Mutti
+3131,Hyderabad Distributors - Adilabad 16,Wholesaler,Adilabad,506260,18.7807454,78.9007531,Turvi Kuruvilla
+3132,City Convenience - Zacharia's,Convenience Store,Karimnagar,505012,17.5110001,79.9130673,Aachal Aggarwal
+3133,Nature's Basket - Choudhary Zila Mall,National Mall Outlet,Karimnagar,501679,17.6865061,77.3167242,Ati Sekhon
+3134,Marks & Spencer Food - Bala Marg Mall,National Mall Outlet,Peddapalli,504971,16.8189245,77.3532559,Arin Soni
+3135,HyperCity - Bhongir 10,Hypermarket,Bhongir,507398,19.4118845,79.2038316,Rohan Kalita
+3136,Swiggy Instamart - Medak 9,Online Grocer,Medak,501416,19.1129778,77.5602074,Janya Sachdev
+3137,Big Bazaar - Hyderabad 19,Hypermarket,Hyderabad,501557,17.3652196,79.3057852,Laban Nanda
+3138,Spencer's Retail - Nalgonda 13,Supermarket,Nalgonda,506529,19.2827677,80.0740373,Dalbir Shankar
+3139,Spencer's Retail - Nalgonda 9,Supermarket,Nalgonda,507899,17.546397,78.0168533,Parth Khare
+3140,More Supermarket - Ramagundam 14,Supermarket,Ramagundam,503966,18.4507938,79.3916863,Anvi Cheema
+3141,Zepto - Kothagudem 19,Online Grocer,Kothagudem,507665,18.3245206,78.6151508,Amol Bedi
+3142,Local Distributor - Hyderabad 4,Wholesaler,Hyderabad,504971,18.9173934,79.70702,Ekiya Dey
+3143,Foodhall - Shroff Chowk Mall,National Mall Outlet,Siddipet,501557,16.9569326,80.4167041,Sachi Tara
+3144,Sathe-Patla Store,Kirana Store,Khammam,509812,17.2607051,77.5052953,Hardik Bhatia
+3145,24x7 Store - Sen's,Convenience Store,Karimnagar,508499,16.6520684,77.474417,Kashish Dhingra
+3146,HyperCity - Nalgonda 18,Hypermarket,Nalgonda,505087,19.4867316,80.5586858,Dipta Andra
+3147,Hyderabad Distributors - Adilabad 15,Wholesaler,Adilabad,504971,17.4250949,79.4929923,Bahadurjit Bahri
+3148,D-Mart - Sangareddy 18,Hypermarket,Sangareddy,508032,16.8362746,79.0750714,Vanya Garg
+3149,HyperCity - Jagtial 5,Hypermarket,Jagtial,507801,19.2090262,78.0385773,Ekaraj Venkatesh
+3150,Reliance Smart - Mahabubnagar 8,Supermarket,Mahabubnagar,501635,16.5649736,77.9012901,Divya Jayaraman
+3151,More Supermarket - Nizamabad 8,Supermarket,Nizamabad,507801,16.5815247,79.6788802,Jagdish Naidu
+3152,Blinkit - Adilabad 3,Online Grocer,Adilabad,503286,18.800695,80.3163663,Barkha Chana
+3153,Sharma General Store - Golla's,Kirana Store,Suryapet,505441,18.7267915,77.2897919,Oviya Vora
+3154,D-Mart - Karimnagar 3,Hypermarket,Karimnagar,500946,17.695306,79.3469145,Chatura Kurian
+3155,Reliance Smart - Nizamabad 4,Supermarket,Nizamabad,500101,19.098691,80.8245883,Rehaan Sule
+3156,"Modi, Prasad and Kumar Store",Convenience Store,Mancherial,502405,18.9363342,78.7327546,Krishna Bhatnagar
+3157,Local Distributor - Medak 5,Wholesaler,Medak,505459,18.5783845,77.8056968,Waida Modi
+3158,Marks & Spencer Food - Sarkar Road Mall,National Mall Outlet,Siddipet,500992,17.821357,79.9054419,Madhavi Soman
+3159,Ratnadeep Retail - Karimnagar 15,Supermarket,Karimnagar,507339,19.2830955,79.9879512,Banjeet Sethi
+3160,Spencer's Retail - Siddipet 1,Supermarket,Siddipet,508499,17.6923274,80.8799828,Januja Chakrabarti
+3161,Dalal-Morar Store,Kirana Store,Suryapet,509180,17.1112343,80.6040805,Ganga Bhavsar
+3162,Marks & Spencer Food - Sunder Circle Mall,National Mall Outlet,Peddapalli,509812,16.5514163,79.5458859,Yug Chaudhuri
+3163,Marks & Spencer Food - Shankar Mall,National Mall Outlet,Hyderabad,509624,18.0825005,80.7137192,Nirja Seshadri
+3164,Foodhall - Naik Marg Mall,National Mall Outlet,Hyderabad,506260,18.4347976,80.8586495,Siddharth Keer
+3165,Star Bazaar - Warangal 6,Hypermarket,Warangal,502027,18.70598,80.8722827,Vivaan Rajan
+3166,HyperCity - Hyderabad 20,Hypermarket,Hyderabad,500934,17.4597836,77.7879398,Aadi Devi
+3167,D-Mart - Hyderabad 9,Hypermarket,Hyderabad,502220,16.6146759,80.4966832,Parth Om
+3168,Reliance Wholesale - Mancherial 10,Wholesaler,Mancherial,501279,19.4309964,80.5113952,Radha Sen
+3169,Foodhall - Sehgal Street Mall,National Mall Outlet,Peddapalli,505012,18.6410148,78.452401,Sanya Subramanian
+3170,Hyderabad Distributors - Ramagundam 16,Wholesaler,Ramagundam,507665,17.5551036,77.6947938,Ekanta Kala
+3171,Ratnadeep Retail - Nalgonda 11,Supermarket,Nalgonda,508602,19.1311239,80.0699092,Madhav Saraf
+3172,Local Distributor - Kothagudem 11,Wholesaler,Kothagudem,506529,19.2622156,80.3021618,Pooja Samra
+3173,Foodhall - Sridhar Street Mall,National Mall Outlet,Mahabubnagar,508431,18.2950168,80.0465952,Prisha More
+3174,Local Distributor - Karimnagar 17,Wholesaler,Karimnagar,503614,19.3112106,78.0371028,Faraj Acharya
+3175,HyperCity - Ramagundam 5,Hypermarket,Ramagundam,506951,19.2653134,80.1323238,Vasatika Sangha
+3176,24x7 Store - Lad's,Convenience Store,Mancherial,502014,16.8251665,80.2902507,Charles Nanda
+3177,Om Stores - Manne's,Kirana Store,Medak,506951,17.7881218,80.3518051,Onkar Karan
+3178,24x7 Store - D’Alia's,Convenience Store,Hyderabad,507235,17.652646,79.0905923,Vrinda Johal
+3179,Hyderabad Distributors - Siddipet 11,Wholesaler,Siddipet,503440,18.7799893,78.5069246,Mohini Prabhakar
+3180,Metro Cash & Carry - Wanaparthy 15,Wholesaler,Wanaparthy,503490,19.0124521,78.740476,Banjeet Shetty
+3181,Swiggy Instamart - Karimnagar 19,Online Grocer,Karimnagar,508424,16.8110584,80.4097896,Sai Memon
+3182,D-Mart - Khammam 3,Hypermarket,Khammam,501860,19.0361297,80.7377931,Ekavir Goda
+3183,Foodhall - Sehgal Road Mall,National Mall Outlet,Jagtial,501326,16.5086648,77.7545437,Kabir Garde
+3184,Express Mart - Master's,Convenience Store,Karimnagar,507820,19.4596889,80.5711732,Arunima Deep
+3185,Reliance Smart - Ramagundam 14,Supermarket,Ramagundam,502147,18.0650589,78.7508837,Gunbir Gokhale
+3186,Hyderabad Distributors - Warangal 18,Wholesaler,Warangal,501860,19.1782652,77.5923688,Qushi Koshy
+3187,HyperCity - Hyderabad 19,Hypermarket,Hyderabad,507944,18.3882341,78.9794952,Ubika Kade
+3188,Local Distributor - Medak 9,Wholesaler,Medak,502405,16.6119474,80.8390986,Pratyush Om
+3189,Gupta Kirana - Sarma's,Kirana Store,Mancherial,503143,19.0077946,79.9874959,Udyati Rastogi
+3190,Hyderabad Distributors - Suryapet 19,Wholesaler,Suryapet,503966,18.9269644,80.2969212,Laksh Saxena
+3191,Reliance Smart - Wanaparthy 13,Supermarket,Wanaparthy,501160,16.9861041,79.2738211,Balveer Saran
+3192,Blinkit - Sangareddy 1,Online Grocer,Sangareddy,501860,18.4083172,77.3873689,Yuvraj Sachdeva
+3193,Star Bazaar - Peddapalli 5,Hypermarket,Peddapalli,500453,18.3808045,79.2232505,Tanish Deshpande
+3194,Hyderabad Distributors - Karimnagar 13,Wholesaler,Karimnagar,507665,18.086185,77.2928854,Bhavani Batra
+3195,D-Mart - Warangal 7,Hypermarket,Warangal,509386,18.514584,77.0231858,Aashi Tiwari
+3196,Zepto - Wanaparthy 6,Online Grocer,Wanaparthy,508516,16.6504615,78.8291775,Vedika Solanki
+3197,JioMart - Adilabad 18,Online Grocer,Adilabad,503799,18.5627287,80.938965,Meghana Rajagopal
+3198,Marks & Spencer Food - Loyal Mall,National Mall Outlet,Karimnagar,502297,17.3787826,79.5158452,Ubika Pathak
+3199,Hyderabad Distributors - Medak 13,Wholesaler,Medak,506885,17.0412236,78.9481719,Neha Narain
+3200,24x7 Store - Mahajan's,Convenience Store,Mahabubnagar,501198,18.0250964,79.6290376,Raksha Maharaj
+3201,Zepto - Medak 18,Online Grocer,Medak,506954,17.8914195,78.1181368,Neel Pingle
+3202,"Som, Baria and Shah Store",Kirana Store,Karimnagar,505743,17.3610898,79.051986,Nirja Gill
+3203,HyperCity - Miryalaguda 17,Hypermarket,Miryalaguda,505441,16.8295969,77.362392,Aarav Chatterjee
+3204,D-Mart - Siddipet 7,Hypermarket,Siddipet,507899,18.3995512,80.4219406,Logan Pradhan
+3205,"Om, Rattan and Garg Store",Convenience Store,Siddipet,502027,17.3690078,79.4148815,Ekansh Jhaveri
+3206,"Kala, Mammen and Kari Store",Kirana Store,Karimnagar,503553,17.8016,78.6798375,Triveni Chakraborty
+3207,Hyderabad Distributors - Warangal 12,Wholesaler,Warangal,500934,19.1053675,77.171876,Saanvi Chakraborty
+3208,Reliance Wholesale - Siddipet 14,Wholesaler,Siddipet,508499,18.8320236,77.0543469,Akshay Ganguly
+3209,BigBasket - Medak 7,Online Grocer,Medak,501635,19.2140129,78.2753833,Wyatt Anne
+3210,Metro Cash & Carry - Mancherial 9,Wholesaler,Mancherial,505441,17.753558,78.8941072,Charita Brahmbhatt
+3211,"Gala, Savant and Sane Store",Kirana Store,Wanaparthy,503895,18.041075,79.3070577,Vyanjana Bhakta
+3212,City Convenience - Grewal's,Convenience Store,Hyderabad,502297,17.1212563,80.2741567,Pooja Prakash
+3213,Nature's Basket - Garg Mall,National Mall Outlet,Nizamabad,507286,17.8220165,78.439574,Edhitha Buch
+3214,Nature's Basket - Tata Zila Mall,National Mall Outlet,Suryapet,505271,16.6998545,77.1292766,Charan Kothari
+3215,Marks & Spencer Food - Sathe Nagar Mall,National Mall Outlet,Jagtial,507339,18.0826993,80.6778369,Kamya Bhattacharyya
+3216,Daily Needs - Lanka's,Convenience Store,Kothagudem,501160,16.6458345,78.5071323,Lila Taneja
+3217,Gupta Kirana - Kant's,Kirana Store,Sangareddy,503490,19.1845249,77.0686671,Meera Jain
+3218,More Supermarket - Ramagundam 1,Supermarket,Ramagundam,502014,18.9426977,79.6094205,Vyanjana Kaur
+3219,Nature's Basket - Bose Circle Mall,National Mall Outlet,Nizamabad,509538,16.5564803,78.2812197,Christopher Pillai
+3220,Star Bazaar - Jagtial 8,Hypermarket,Jagtial,507899,17.1502186,77.7292446,Leena Mani
+3221,Marks & Spencer Food - Gade Nagar Mall,National Mall Outlet,Bhongir,502297,17.9645223,78.7584572,Janaki Parikh
+3222,Om Stores - Yohannan's,Kirana Store,Khammam,507398,16.7602562,78.7719254,Sanya Mall
+3223,JioMart - Suryapet 18,Online Grocer,Suryapet,503614,19.482151,79.825218,Jeremiah Mand
+3224,Local Distributor - Medak 6,Wholesaler,Medak,508516,18.1651567,77.8828303,Garima Majumdar
+3225,JioMart - Warangal 2,Online Grocer,Warangal,502145,18.7765624,78.9916507,Naveen Raja
+3226,Big Bazaar - Hyderabad 4,Hypermarket,Hyderabad,508499,16.525301,79.0671839,Omisha Bose
+3227,Nature's Basket - Mahal Path Mall,National Mall Outlet,Mancherial,507235,17.1700897,77.2620998,Yashawini Panchal
+3228,Marks & Spencer Food - Oza Mall,National Mall Outlet,Warangal,500679,17.1617945,80.8177153,Jackson Savant
+3229,Reliance Wholesale - Siddipet 20,Wholesaler,Siddipet,503297,17.8187081,80.2203906,Yochana Gill
+3230,"Menon, Loke and Gaba Store",Kirana Store,Bhongir,507820,19.3518253,80.3259063,Shaurya Sawhney
+3231,Reliance Wholesale - Ramagundam 16,Wholesaler,Ramagundam,505271,18.0702127,79.8423142,Arunima Sekhon
+3232,Nature's Basket - Kohli Marg Mall,National Mall Outlet,Nalgonda,502130,19.4911712,79.8802023,Ronith Deshpande
+3233,Pall PLC Store,Convenience Store,Miryalaguda,505087,18.5030313,79.7237619,Warhi Kapadia
+3234,HyperCity - Wanaparthy 13,Hypermarket,Wanaparthy,502220,17.829397,79.6803296,Sanaya Nori
+3235,Gupta Kirana - Pradhan's,Kirana Store,Bhongir,502405,19.2776775,77.2366354,Triya Ravi
+3236,HyperCity - Ramagundam 2,Hypermarket,Ramagundam,505847,19.0701836,78.5649066,Gaurangi Sarin
+3237,Marks & Spencer Food - Sekhon Nagar Mall,National Mall Outlet,Karimnagar,503490,19.1009422,79.2799162,Abeer Salvi
+3238,Venkataraman-Sem Store,Kirana Store,Peddapalli,509957,18.5069843,77.5472611,Laksh Mohanty
+3239,"Saran, Palla and Basak Store",Convenience Store,Medak,501635,16.76456,79.1887694,Maya Salvi
+3240,Local Corner Shop - Sani's,Kirana Store,Ramagundam,501679,17.7722772,79.576419,Watika Jain
+3241,Big Bazaar - Jagtial 20,Hypermarket,Jagtial,503286,18.601813,77.3332837,Amara Aggarwal
+3242,Spencer's Retail - Medak 11,Supermarket,Medak,502130,17.5658378,79.4988907,Dalaja Patel
+3243,Hyderabad Distributors - Hyderabad 16,Wholesaler,Hyderabad,503286,19.3920554,79.354929,Yatin Madan
+3244,Nature's Basket - Acharya Zila Mall,National Mall Outlet,Siddipet,502297,17.4018117,80.348321,Vedika Sharaf
+3245,Marks & Spencer Food - Sen Nagar Mall,National Mall Outlet,Khammam,507747,17.6913716,77.59351,Unnati Deol
+3246,Priya Kirana - Babu's,Kirana Store,Miryalaguda,500453,18.2716759,77.5505493,Gautami Bir
+3247,Reliance Smart - Mancherial 11,Supermarket,Mancherial,502014,19.1134064,80.8349083,Veer Patel
+3248,Gupta Kirana - Hayre's,Kirana Store,Hyderabad,501416,19.3987753,78.4285006,Amara Kala
+3249,Blinkit - Mancherial 7,Online Grocer,Mancherial,502926,17.419824,79.5920363,Jack Raman
+3250,Nature's Basket - Malhotra Path Mall,National Mall Outlet,Adilabad,504138,17.5598908,78.1468229,Raagini Kata
+3251,Sharma General Store - Mani's,Kirana Store,Adilabad,501679,17.3665543,77.6013978,Jackson Dalal
+3252,Local Distributor - Nalgonda 20,Wholesaler,Nalgonda,509180,17.7607795,78.3157855,Barkha Soman
+3253,Chahal Inc Store,Kirana Store,Adilabad,509180,18.7597524,77.1395527,Sai Contractor
+3254,Star Bazaar - Sangareddy 14,Hypermarket,Sangareddy,509639,16.526463,80.1505613,Aradhana Majumdar
+3255,Star Bazaar - Bhongir 16,Hypermarket,Bhongir,502220,17.1796478,79.4469017,Faras Borra
+3256,HyperCity - Jagtial 6,Hypermarket,Jagtial,503895,17.2400298,77.0909265,Omkaar Sha
+3257,Priya Kirana - Sheth's,Kirana Store,Jagtial,506325,18.9829911,79.0235357,Sachi Uppal
+3258,Express Mart - Mand's,Convenience Store,Kothagudem,505743,17.602722,78.4288329,Tejas Shah
+3259,BigBasket - Hyderabad 5,Online Grocer,Hyderabad,507801,18.573105,80.9791637,Anika Khatri
+3260,Express Mart - Subramanian's,Convenience Store,Bhongir,506518,17.3618713,77.8470661,Yasti Anne
+3261,Star Bazaar - Nizamabad 1,Hypermarket,Nizamabad,508032,17.993795,77.9935352,Ojas Suresh
+3262,Hyderabad Distributors - Peddapalli 15,Wholesaler,Peddapalli,502027,18.9150482,78.4255157,Champak Prasad
+3263,Hyderabad Distributors - Suryapet 17,Wholesaler,Suryapet,500946,16.7111225,78.0743206,Keya Sahni
+3264,JioMart - Medak 8,Online Grocer,Medak,508032,18.5766172,79.8309999,Dalaja Jhaveri
+3265,Om Stores - Mahajan's,Kirana Store,Hyderabad,508875,17.1776191,77.3280342,Raagini Chacko
+3266,Reliance Wholesale - Mahabubnagar 11,Wholesaler,Mahabubnagar,508424,19.2321559,78.9323061,Ekbal Sidhu
+3267,Spencer's Retail - Karimnagar 3,Supermarket,Karimnagar,509386,18.3889795,78.533055,Nilima Dalal
+3268,BigBasket - Jagtial 5,Online Grocer,Jagtial,503297,17.6217229,80.9515028,Balvan Chauhan
+3269,Blinkit - Suryapet 11,Online Grocer,Suryapet,505962,17.5198062,78.4744332,Aadi Shankar
+3270,Marks & Spencer Food - Deep Marg Mall,National Mall Outlet,Adilabad,502027,18.8809476,77.89931,Qadim Vohra
+3271,Foodhall - Korpal Ganj Mall,National Mall Outlet,Suryapet,504138,19.4091109,77.3992832,Xavier Chada
+3272,HyperCity - Peddapalli 13,Hypermarket,Peddapalli,505271,17.571715,79.2065072,Kavya Parmer
+3273,Om Stores - Sood's,Kirana Store,Khammam,500934,18.6925458,78.2090176,Umang Kale
+3274,Sharma General Store - Soman's,Kirana Store,Wanaparthy,507559,16.8906288,80.347933,Kalpit Lall
+3275,Ratnadeep Retail - Hyderabad 1,Supermarket,Hyderabad,509538,18.0371069,79.6753946,Udarsh Rai
+3276,Star Bazaar - Khammam 8,Hypermarket,Khammam,509160,19.1468672,78.2054693,Anvi Rau
+3277,D-Mart - Sangareddy 15,Hypermarket,Sangareddy,506148,18.3312922,77.8757433,Samarth Narang
+3278,Priya Kirana - Ray's,Kirana Store,Suryapet,509624,17.9144169,78.7359788,Bishakha Sem
+3279,JioMart - Nalgonda 9,Online Grocer,Nalgonda,502536,16.5620174,78.3787624,Ekansh Rama
+3280,Ratnadeep Retail - Nalgonda 11,Supermarket,Nalgonda,501860,18.4589696,79.1379831,Neelima Raval
+3281,Foodhall - Sibal Nagar Mall,National Mall Outlet,Kothagudem,508602,18.4715433,78.9878524,Gayathri Sidhu
+3282,"Shankar, Narayan and Om Store",Convenience Store,Khammam,502014,18.5919468,80.5536483,Aahana Bahl
+3283,Gupta Kirana - Rao's,Kirana Store,Nalgonda,503286,16.557603,77.0433627,Saksham Warrior
+3284,Foodhall - Chander Road Mall,National Mall Outlet,Wanaparthy,505441,19.2386048,77.4506299,Laksh Rai
+3285,Metro Cash & Carry - Mancherial 20,Wholesaler,Mancherial,505436,18.9713237,80.9305394,Yashvi Kakar
+3286,"Sharma, Jani and Vaidya Store",Convenience Store,Hyderabad,509160,18.4911112,79.8438674,Nikita Misra
+3287,Marks & Spencer Food - Manda Chowk Mall,National Mall Outlet,Nalgonda,509538,19.4814996,79.2852403,Yagnesh Baral
+3288,"Borra, Wadhwa and Shenoy Store",Kirana Store,Karimnagar,508424,16.9280692,79.0736952,Tripti Sarin
+3289,Blinkit - Siddipet 12,Online Grocer,Siddipet,505962,16.9215276,78.7337841,Yauvani Narayan
+3290,Swiggy Instamart - Medak 19,Online Grocer,Medak,502632,16.864155,79.9334866,Andrew Sangha
+3291,D-Mart - Nalgonda 1,Hypermarket,Nalgonda,509957,17.4920429,78.0630647,Waida Kant
+3292,Local Corner Shop - Sheth's,Kirana Store,Mahabubnagar,501160,17.3828643,78.0468054,Avni Dewan
+3293,Gupta Kirana - Thakkar's,Kirana Store,Bhongir,504585,17.8752475,78.3473656,Vyanjana Narasimhan
+3294,"Sant, Menon and Bhakta Store",Convenience Store,Khammam,500934,18.4532074,79.2178933,Chasmum Korpal
+3295,Reliance Smart - Wanaparthy 10,Supermarket,Wanaparthy,502014,16.7145588,80.5348443,Warda Contractor
+3296,Butala-Dasgupta Store,Convenience Store,Wanaparthy,509160,18.2130964,77.8430916,Michael Sarkar
+3297,Star Bazaar - Wanaparthy 14,Hypermarket,Wanaparthy,504138,19.0001823,78.5807692,Warda Pal
+3298,Spencer's Retail - Mancherial 11,Supermarket,Mancherial,506850,18.7152434,79.3362483,Zilmil Devan
+3299,Local Distributor - Khammam 8,Wholesaler,Khammam,508640,18.3322733,78.9092429,Banjeet Thaker
+3300,Local Distributor - Kothagudem 10,Wholesaler,Kothagudem,502130,19.3444427,79.5122999,Neel Wadhwa
+3301,Reliance Wholesale - Ramagundam 12,Wholesaler,Ramagundam,505743,18.9816452,80.9949708,Advika Puri
+3302,More Supermarket - Mancherial 18,Supermarket,Mancherial,509740,16.6741334,78.4196022,Avi Hayer
+3303,Star Bazaar - Adilabad 16,Hypermarket,Adilabad,502145,19.248655,80.6839201,Zaitra Thakkar
+3304,Nature's Basket - Vora Nagar Mall,National Mall Outlet,Mahabubnagar,505847,19.0040265,79.1222654,Ansh Rege
+3305,Marks & Spencer Food - Mallick Street Mall,National Mall Outlet,Jagtial,501557,18.6905916,78.8867411,Idika Kala
+3306,JioMart - Nizamabad 19,Online Grocer,Nizamabad,503086,18.5101364,80.2116321,Chameli Singhal
+3307,Metro Cash & Carry - Ramagundam 18,Wholesaler,Ramagundam,508015,16.8558825,77.949704,Maanas Gole
+3308,HyperCity - Karimnagar 1,Hypermarket,Karimnagar,501326,18.6044866,78.7298855,Ekani Chacko
+3309,HyperCity - Mahabubnagar 19,Hypermarket,Mahabubnagar,500679,17.5240322,80.4176298,Balvan Soni
+3310,Reliance Smart - Jagtial 20,Supermarket,Jagtial,508244,18.4159694,80.6958609,Nimrat Sibal
+3311,D-Mart - Peddapalli 4,Hypermarket,Peddapalli,505784,19.1005034,78.7459627,Rohan Ramaswamy
+3312,Blinkit - Peddapalli 18,Online Grocer,Peddapalli,501416,17.2071203,77.6174561,Devansh Gour
+3313,Priya Kirana - Jha's,Kirana Store,Hyderabad,507899,18.1230723,79.6869351,Karan Lall
+3314,Blinkit - Peddapalli 7,Online Grocer,Peddapalli,509639,18.9540647,77.6824936,Dhriti Batta
+3315,Priya Kirana - Chad's,Kirana Store,Nalgonda,506529,17.927127,78.669543,Aarush Mani
+3316,D-Mart - Mahabubnagar 4,Hypermarket,Mahabubnagar,501326,18.655861,80.9717428,Raghav Doshi
+3317,JioMart - Wanaparthy 3,Online Grocer,Wanaparthy,503966,18.9412768,78.9678524,Ekiya Thakur
+3318,Reliance Wholesale - Adilabad 13,Wholesaler,Adilabad,501416,17.5080876,80.1379596,Girindra Agate
+3319,JioMart - Suryapet 16,Online Grocer,Suryapet,500946,18.3009399,78.0575557,Warinder Bansal
+3320,Zepto - Miryalaguda 2,Online Grocer,Miryalaguda,506885,18.3617488,80.8387659,Anya Loyal
+3321,Om Stores - Chhabra's,Kirana Store,Sangareddy,500679,18.0965077,80.8532884,Yasti Ravi
+3322,Zepto - Adilabad 19,Online Grocer,Adilabad,503553,16.9363957,77.365843,Nilima Choudhury
+3323,Blinkit - Miryalaguda 16,Online Grocer,Miryalaguda,506529,16.6843117,79.3954457,Advika Gandhi
+3324,Rai Inc Store,Kirana Store,Mancherial,509160,17.4508438,77.4009537,Zansi Palla
+3325,Metro Cash & Carry - Medak 9,Wholesaler,Medak,508015,18.6734715,80.4136276,Devika Wali
+3326,Nature's Basket - Yogi Road Mall,National Mall Outlet,Khammam,509812,19.112033,78.2495572,Chaitaly Magar
+3327,Daily Needs - Bains's,Convenience Store,Siddipet,501635,19.0965137,80.6110302,Chameli Contractor
+3328,JioMart - Hyderabad 4,Online Grocer,Hyderabad,502220,17.9232718,78.8428569,Riya Rau
+3329,D-Mart - Miryalaguda 20,Hypermarket,Miryalaguda,508853,16.5006671,80.5790049,Vedhika Sanghvi
+3330,JioMart - Hyderabad 13,Online Grocer,Hyderabad,502220,17.3741222,80.6144463,Diya Babu
+3331,Marks & Spencer Food - Kota Nagar Mall,National Mall Outlet,Khammam,507899,18.8456455,80.6054679,Yasti Walla
+3332,Zepto - Sangareddy 7,Online Grocer,Sangareddy,506325,18.4380521,79.3720806,Akshay Tandon
+3333,Express Mart - Aurora's,Convenience Store,Miryalaguda,506529,19.2262755,77.0893008,Shaurya Rajan
+3334,Om Stores - Oommen's,Kirana Store,Warangal,500101,16.9337957,79.1250122,Aishani Sharma
+3335,Express Mart - Parmer's,Convenience Store,Nalgonda,502297,17.5003747,77.6602487,Nimrat Krishnamurthy
+3336,Dhillon-Verma Store,Convenience Store,Peddapalli,509957,18.8107865,77.8310716,Harish Chakraborty
+3337,Ratnadeep Retail - Warangal 3,Supermarket,Warangal,500992,18.9048707,78.1779154,Kabir Pillai
+3338,Reliance Smart - Karimnagar 13,Supermarket,Karimnagar,505441,17.145304,80.874713,Chasmum Narula
+3339,Zepto - Ramagundam 11,Online Grocer,Ramagundam,501042,16.743337,79.8141881,Anvi Sengupta
+3340,Foodhall - Bhatti Ganj Mall,National Mall Outlet,Hyderabad,506325,18.8652253,78.2542448,Vanya Chowdhury
+3341,Priya Kirana - Shukla's,Kirana Store,Miryalaguda,505087,19.4905236,79.2967484,Nicholas Minhas
+3342,Hyderabad Distributors - Karimnagar 7,Wholesaler,Karimnagar,506148,19.2649263,77.1370125,Girish Dayal
+3343,Sharma General Store - Koshy's,Kirana Store,Miryalaguda,508499,16.8383978,80.3348656,Kamya Pandit
+3344,Express Mart - Sani's,Convenience Store,Nizamabad,502220,19.00737,78.8333044,Dayita Iyengar
+3345,Metro Cash & Carry - Nalgonda 4,Wholesaler,Nalgonda,503799,19.0109122,80.8734917,Yachana Kale
+3346,Priya Kirana - Mallick's,Kirana Store,Siddipet,501679,18.7075398,79.1669775,Ekantika Walia
+3347,Spencer's Retail - Siddipet 18,Supermarket,Siddipet,500946,19.2039952,77.4552754,Yug Korpal
+3348,Ratnadeep Retail - Siddipet 7,Supermarket,Siddipet,507339,19.1267136,79.9880103,Lipika Chand
+3349,Nature's Basket - Nagi Circle Mall,National Mall Outlet,Ramagundam,503553,17.8176782,79.7342362,Jagdish Sangha
+3350,Zepto - Siddipet 13,Online Grocer,Siddipet,505984,16.7786365,77.98373,Hemangini Badami
+3351,Foodhall - Cherian Zila Mall,National Mall Outlet,Miryalaguda,502297,16.7965493,79.4707764,Dakshesh Gokhale
+3352,Star Bazaar - Kothagudem 8,Hypermarket,Kothagudem,504191,16.7259126,80.6930957,Shivani Rout
+3353,Spencer's Retail - Mahabubnagar 18,Supermarket,Mahabubnagar,508431,17.2336187,77.0069792,Hemang Hayer
+3354,Foodhall - Padmanabhan Zila Mall,National Mall Outlet,Medak,501860,19.1922977,79.6867695,Wahab Cheema
+3355,"Wable, Suri and Pant Store",Convenience Store,Miryalaguda,503086,19.4381466,77.109814,Mohini Kunda
+3356,Spencer's Retail - Ramagundam 17,Supermarket,Ramagundam,508244,16.9876701,77.9686112,Hritik Sangha
+3357,"Jhaveri, Sachdeva and Kohli Store",Kirana Store,Ramagundam,503573,18.3327794,79.354348,Bhavini Patel
+3358,Local Distributor - Adilabad 17,Wholesaler,Adilabad,508602,17.2996242,79.480744,Chasmum Salvi
+3359,Priya Kirana - Varughese's,Kirana Store,Mahabubnagar,501042,16.9675197,77.2209115,Wriddhish Chauhan
+3360,More Supermarket - Karimnagar 10,Supermarket,Karimnagar,506260,16.8629119,79.4943065,Zaitra Ratta
+3361,Sharma General Store - Borde's,Kirana Store,Karimnagar,507787,17.4504009,80.5546178,Advika Walia
+3362,JioMart - Medak 16,Online Grocer,Medak,503490,17.263964,80.7337787,Tanay Subramaniam
+3363,Zepto - Wanaparthy 4,Online Grocer,Wanaparthy,503086,17.0313852,77.891694,Jack Patla
+3364,Zepto - Khammam 11,Online Grocer,Khammam,503086,16.6209303,78.232522,Ansh Ramesh
+3365,Nature's Basket - Parmer Marg Mall,National Mall Outlet,Peddapalli,509977,17.4116064,80.3759709,Advika Hegde
+3366,Blinkit - Ramagundam 16,Online Grocer,Ramagundam,507235,18.6303846,77.7352791,Patrick Rastogi
+3367,Swiggy Instamart - Hyderabad 18,Online Grocer,Hyderabad,509812,18.3593678,77.7442553,Pranit Dora
+3368,Reliance Wholesale - Kothagudem 18,Wholesaler,Kothagudem,507787,19.1216868,80.4456137,Garima Ranganathan
+3369,HyperCity - Warangal 5,Hypermarket,Warangal,502147,16.8742934,77.2604276,Warhi Srivastava
+3370,Zepto - Nalgonda 10,Online Grocer,Nalgonda,507559,16.7218096,79.9653161,Vaishnavi Yadav
+3371,JioMart - Suryapet 3,Online Grocer,Suryapet,507665,16.6013554,80.9595925,Fariq Deep
+3372,Express Mart - Mallick's,Convenience Store,Hyderabad,507944,17.538711,78.107227,Aadi Shanker
+3373,Metro Cash & Carry - Mancherial 5,Wholesaler,Mancherial,503553,16.5404499,77.4535259,Yashawini Agarwal
+3374,City Convenience - Kibe's,Convenience Store,Suryapet,508244,19.0368744,78.866929,Harsh Wali
+3375,JioMart - Kothagudem 18,Online Grocer,Kothagudem,508738,19.0216343,77.5673775,Krishna Bala
+3376,Hyderabad Distributors - Kothagudem 11,Wholesaler,Kothagudem,500453,17.1043309,79.4875465,Theodore Bora
+3377,Nature's Basket - Parmer Road Mall,National Mall Outlet,Warangal,502014,18.6739779,78.1645121,Falan Mukhopadhyay
+3378,Blinkit - Mancherial 4,Online Grocer,Mancherial,505743,18.1274171,77.8350876,Ekta Korpal
+3379,City Convenience - Chada's,Convenience Store,Ramagundam,509812,17.9255274,79.2302574,Tanmayi Sahota
+3380,Foodhall - Rama Nagar Mall,National Mall Outlet,Mancherial,508244,18.8558631,80.8468846,Netra Gokhale
+3381,Nature's Basket - Prasad Nagar Mall,National Mall Outlet,Miryalaguda,506325,17.7641845,79.7017156,Sanaya Gokhale
+3382,Express Mart - Sant's,Convenience Store,Kothagudem,503553,18.7690528,78.731994,Wridesh Yadav
+3383,Local Corner Shop - Andra's,Kirana Store,Mancherial,506954,17.4732866,78.6819838,Mohini Karnik
+3384,Big Bazaar - Ramagundam 12,Hypermarket,Ramagundam,500992,19.0093497,78.8186994,Xavier Deshpande
+3385,HyperCity - Warangal 3,Hypermarket,Warangal,500946,17.0983835,78.4493919,Siya Mutti
+3386,Reliance Smart - Ramagundam 3,Supermarket,Ramagundam,501860,18.606735,79.7344043,Yashodhara Om
+3387,Ratnadeep Retail - Medak 9,Supermarket,Medak,505625,19.2470631,78.0892756,Chakradhar Joshi
+3388,BigBasket - Mancherial 17,Online Grocer,Mancherial,504191,18.0771282,79.9046932,Reva Gupta
+3389,Nature's Basket - Sagar Path Mall,National Mall Outlet,Suryapet,508015,17.8709027,77.1985328,Parth Bhatti
+3390,Zepto - Nalgonda 16,Online Grocer,Nalgonda,505436,19.2368879,77.3822758,Orinder Gera
+3391,Big Bazaar - Jagtial 17,Hypermarket,Jagtial,507801,18.9600141,79.2966364,Krishna Gour
+3392,D-Mart - Peddapalli 3,Hypermarket,Peddapalli,500992,16.5956457,77.3706282,Chameli Chaudhry
+3393,Ratnadeep Retail - Medak 16,Supermarket,Medak,507286,17.897484,80.5961435,Aishani Keer
+3394,Kadakia and Sons Store,Convenience Store,Nalgonda,505459,17.3266378,78.0952597,Xalak Sundaram
+3395,Zepto - Warangal 9,Online Grocer,Warangal,506885,17.8965235,79.7700371,Gunbir Tank
+3396,Zepto - Nalgonda 2,Online Grocer,Nalgonda,506885,19.2067207,77.5544891,Devika Maharaj
+3397,Zepto - Mahabubnagar 1,Online Grocer,Mahabubnagar,502926,16.9483104,80.326454,Bishakha Mangat
+3398,Ratnadeep Retail - Nalgonda 16,Supermarket,Nalgonda,501042,18.2268459,77.2607618,Prisha Basak
+3399,Nature's Basket - Bhatnagar Road Mall,National Mall Outlet,Nizamabad,509639,18.8758,79.6516632,Libni Barad
+3400,Reliance Wholesale - Mahabubnagar 14,Wholesaler,Mahabubnagar,508853,19.0269525,79.7119208,Avni Dani
+3401,D-Mart - Hyderabad 14,Hypermarket,Hyderabad,502926,17.8063328,78.1747482,Mitali Sridhar
+3402,Bhatia-Panchal Store,Convenience Store,Mahabubnagar,506954,17.8720375,79.7598507,Devansh Buch
+3403,Daily Needs - Panchal's,Convenience Store,Adilabad,505271,16.7000793,79.8023252,Alexander Maharaj
+3404,"Raghavan, Bail and Sarkar Store",Kirana Store,Karimnagar,500992,18.5680648,78.612334,Victor Som
+3405,Soman-Nori Store,Kirana Store,Medak,502014,18.5760755,78.4377298,Kabir Narain
+3406,Gupta Kirana - Basak's,Kirana Store,Karimnagar,502095,18.7033572,79.5172967,Krishna Patil
+3407,City Convenience - Garde's,Convenience Store,Nalgonda,503440,17.3517859,79.9731961,Ranbir Koshy
+3408,Foodhall - Muni Zila Mall,National Mall Outlet,Bhongir,505441,17.886496,77.1272692,Yashawini Dara
+3409,Reliance Wholesale - Wanaparthy 20,Wholesaler,Wanaparthy,507801,17.855987,79.5390011,Lekha Purohit
+3410,Reliance Smart - Wanaparthy 3,Supermarket,Wanaparthy,507665,16.9899797,79.8617211,Amol Gandhi
+3411,Daily Needs - Puri's,Convenience Store,Bhongir,506518,19.4734595,80.9443964,Yauvani Sinha
+3412,Foodhall - Venkatesh Zila Mall,National Mall Outlet,Miryalaguda,507398,17.3008499,77.0530655,Atharv Dhar
+3413,"Lata, Kulkarni and Bakshi Store",Convenience Store,Nalgonda,508032,19.1069496,78.2553182,Jason Patla
+3414,D-Mart - Nizamabad 1,Hypermarket,Nizamabad,508516,18.2501088,77.5180572,Hemang Gole
+3415,24x7 Store - Sarin's,Convenience Store,Sangareddy,503440,16.6349011,80.7644914,Madhavi Doctor
+3416,Ratnadeep Retail - Nizamabad 15,Supermarket,Nizamabad,509812,18.8906242,80.3384195,Ayushman Bir
+3417,Pathak-Narang Store,Convenience Store,Suryapet,505847,17.432761,78.3257669,Bhavna Rajagopalan
+3418,Big Bazaar - Nizamabad 14,Hypermarket,Nizamabad,507286,16.7840025,79.1195839,Eta Issac
+3419,Foodhall - Borah Road Mall,National Mall Outlet,Kothagudem,509639,18.0695716,77.7695031,Baghyawati Bajwa
+3420,Reliance Smart - Suryapet 11,Supermarket,Suryapet,505743,19.4600996,80.4907266,Dhruv Thaman
+3421,BigBasket - Siddipet 15,Online Grocer,Siddipet,504191,16.5038111,78.5701616,Rajeshri Prasad
+3422,Hyderabad Distributors - Warangal 14,Wholesaler,Warangal,504971,18.3110154,77.3733436,Yasti Ravi
+3423,Star Bazaar - Ramagundam 3,Hypermarket,Ramagundam,500946,16.9850885,78.2976105,Ekanta Raghavan
+3424,Gupta Kirana - Sarraf's,Kirana Store,Ramagundam,508853,18.4214179,78.1469295,Teerth Seth
+3425,D-Mart - Warangal 18,Hypermarket,Warangal,508640,18.122946,79.4381661,Gaurang Krishna
+3426,Local Distributor - Sangareddy 19,Wholesaler,Sangareddy,506260,18.9486471,78.4235677,Devansh Hari
+3427,Daily Needs - Ramachandran's,Convenience Store,Nizamabad,507559,17.3902506,79.0661534,Tanish Gulati
+3428,Halder Inc Store,Kirana Store,Bhongir,509740,17.3106515,77.8557624,Isaac Agrawal
+3429,Zepto - Medak 1,Online Grocer,Medak,503573,18.7887214,79.0214607,Nikita Andra
+3430,Ratnadeep Retail - Nizamabad 14,Supermarket,Nizamabad,506325,17.4463246,79.3477324,Chatura Sen
+3431,Hyderabad Distributors - Bhongir 18,Wholesaler,Bhongir,507398,18.1923307,78.8846031,Bhavani Raju
+3432,Big Bazaar - Nizamabad 3,Hypermarket,Nizamabad,507899,19.4342178,79.8945191,Isaiah Chawla
+3433,Foodhall - Gandhi Ganj Mall,National Mall Outlet,Peddapalli,500934,18.7904115,79.2118389,Krishna Bail
+3434,HyperCity - Medak 17,Hypermarket,Medak,509624,16.929945,77.2009337,Xavier Varma
+3435,Reliance Smart - Khammam 4,Supermarket,Khammam,506885,19.2380213,79.92278,Nandini Toor
+3436,More Supermarket - Bhongir 5,Supermarket,Bhongir,504138,17.5119757,79.1839237,Matthew Lad
+3437,24x7 Store - Madan's,Convenience Store,Nizamabad,503286,17.2578837,78.2854878,Tamanna Kalita
+3438,Radhakrishnan-Ram Store,Kirana Store,Siddipet,502926,18.1065356,80.7127062,Yamini Thakur
+3439,Local Distributor - Sangareddy 4,Wholesaler,Sangareddy,503286,17.7843507,77.2666196,Chanchal Sekhon
+3440,Spencer's Retail - Hyderabad 3,Supermarket,Hyderabad,508602,19.4067892,80.9526869,Geetika Kibe
+3441,HyperCity - Kothagudem 3,Hypermarket,Kothagudem,507286,19.1786971,77.791094,Charles Seshadri
+3442,Nature's Basket - Parsa Road Mall,National Mall Outlet,Siddipet,500946,17.0309382,77.5366958,Amol Pau
+3443,Metro Cash & Carry - Nizamabad 15,Wholesaler,Nizamabad,507820,16.5554794,80.4401271,Nimrat Bhargava
+3444,Big Bazaar - Kothagudem 18,Hypermarket,Kothagudem,501416,19.0316675,77.958713,Deepa Dutt
+3445,Blinkit - Mahabubnagar 17,Online Grocer,Mahabubnagar,505625,17.9892477,78.1510967,Vidhi Mishra
+3446,Hyderabad Distributors - Adilabad 4,Wholesaler,Adilabad,501326,17.9478086,79.4068286,Damini Hans
+3447,Reliance Wholesale - Kothagudem 6,Wholesaler,Kothagudem,508499,18.2110245,79.7724556,Indira Mander
+3448,Swiggy Instamart - Peddapalli 6,Online Grocer,Peddapalli,507339,16.9430732,79.4147069,Charita Thakur
+3449,Local Corner Shop - Rege's,Kirana Store,Bhongir,505271,16.8814734,80.9944503,Chaitaly Kalita
+3450,Express Mart - Uppal's,Convenience Store,Ramagundam,508516,17.0147589,78.9167027,Parth Jayaraman
+3451,JioMart - Suryapet 6,Online Grocer,Suryapet,501279,19.1595546,78.7769305,Bhavika Madan
+3452,Foodhall - Morar Path Mall,National Mall Outlet,Nizamabad,500934,18.1503212,78.2301009,Faris Gola
+3453,Swiggy Instamart - Wanaparthy 2,Online Grocer,Wanaparthy,505459,17.2506219,77.6596604,Manan Bal
+3454,City Convenience - Joshi's,Convenience Store,Mahabubnagar,501198,16.5520839,78.5215483,Frado Kar
+3455,24x7 Store - Sheth's,Convenience Store,Nalgonda,508499,17.8070675,77.8125767,Ronith Dass
+3456,Star Bazaar - Nizamabad 2,Hypermarket,Nizamabad,509538,16.5315764,77.2778884,Frado Goel
+3457,Foodhall - Handa Marg Mall,National Mall Outlet,Adilabad,506325,16.7662568,79.6241714,Yashvi Karan
+3458,Blinkit - Suryapet 17,Online Grocer,Suryapet,500453,18.1725512,77.3523411,Aarini Chahal
+3459,Om Stores - Ray's,Kirana Store,Hyderabad,500679,16.8722861,80.5199278,Upma Buch
+3460,Krishnan and Sons Store,Kirana Store,Sangareddy,506518,18.1072164,80.2454877,Ekani Mody
+3461,Amble-Gandhi Store,Kirana Store,Karimnagar,500946,19.3001258,78.8474161,Jeremiah Dave
+3462,Oza-Krish Store,Convenience Store,Medak,505784,18.906907,79.0797151,Ojas Tripathi
+3463,Marks & Spencer Food - Bail Road Mall,National Mall Outlet,Mahabubnagar,509386,16.5833474,78.8534239,Kalpit Das
+3464,Zepto - Suryapet 4,Online Grocer,Suryapet,505459,16.7735545,78.1215375,Owen Lal
+3465,Metro Cash & Carry - Nalgonda 14,Wholesaler,Nalgonda,506885,17.5356273,78.8199607,Rohan Butala
+3466,24x7 Store - Ramaswamy's,Convenience Store,Miryalaguda,505087,19.2205051,77.2366966,Rishi Dugar
+3467,Swiggy Instamart - Medak 6,Online Grocer,Medak,508431,18.661943,78.7862545,Jairaj Vasa
+3468,"Tak, Sinha and Ghose Store",Convenience Store,Jagtial,500934,17.374284,78.4359886,Ethan Bhat
+3469,D-Mart - Siddipet 6,Hypermarket,Siddipet,505962,17.7470841,78.8522327,Hemangini Nagar
+3470,Marks & Spencer Food - Kata Chowk Mall,National Mall Outlet,Peddapalli,501679,16.9632417,80.7695687,Vihaan Magar
+3471,Spencer's Retail - Kothagudem 17,Supermarket,Kothagudem,506518,17.9887688,78.276331,Peter Chhabra
+3472,Reliance Wholesale - Medak 9,Wholesaler,Medak,509812,17.3123828,80.2687623,Laban Merchant
+3473,D-Mart - Sangareddy 5,Hypermarket,Sangareddy,503297,16.886849,77.0319845,Advaith Ravel
+3474,Sharma General Store - Bajwa's,Kirana Store,Jagtial,507787,16.6336994,79.1129364,Bhavya Vohra
+3475,City Convenience - Nadkarni's,Convenience Store,Medak,507398,17.1265093,79.014593,Rudra Natarajan
+3476,24x7 Store - Iyengar's,Convenience Store,Warangal,502632,17.0826741,79.9899959,Udyati Iyengar
+3477,JioMart - Siddipet 8,Online Grocer,Siddipet,509624,16.6434955,77.1141741,Tanvi Kannan
+3478,Blinkit - Nizamabad 19,Online Grocer,Nizamabad,507944,17.7869276,78.0812618,Warjas Gulati
+3479,BigBasket - Bhongir 12,Online Grocer,Bhongir,509740,17.7630881,78.0112791,Karan Kakar
+3480,Spencer's Retail - Siddipet 13,Supermarket,Siddipet,503573,18.4524385,77.2462256,Qushi Dave
+3481,Big Bazaar - Warangal 4,Hypermarket,Warangal,502632,18.824952,78.2270765,Isha Pingle
+3482,City Convenience - Bakshi's,Convenience Store,Kothagudem,508853,19.4739283,80.2567024,Wriddhish Devi
+3483,More Supermarket - Kothagudem 19,Supermarket,Kothagudem,509957,19.1836244,77.7217276,Raghav Doshi
+3484,Spencer's Retail - Adilabad 4,Supermarket,Adilabad,508431,17.7284815,80.6784345,Naksh Rout
+3485,HyperCity - Warangal 6,Hypermarket,Warangal,506148,19.2373261,77.8271334,Dominic Morar
+3486,City Convenience - Parmar's,Convenience Store,Nalgonda,504971,17.9488016,78.2864979,Darpan Bajwa
+3487,Ratnadeep Retail - Kothagudem 6,Supermarket,Kothagudem,508602,19.2527957,80.2313591,Ishita Chander
+3488,Zepto - Ramagundam 15,Online Grocer,Ramagundam,500679,18.6135511,80.3576091,Ladli Vala
+3489,Foodhall - Ahuja Circle Mall,National Mall Outlet,Mahabubnagar,505625,17.3085388,80.6585274,Yauvani Kannan
+3490,Nature's Basket - Bhalla Chowk Mall,National Mall Outlet,Khammam,503086,18.2322913,80.3026377,Ucchal Das
+3491,Marks & Spencer Food - Konda Street Mall,National Mall Outlet,Suryapet,503490,16.7583071,80.5332401,Joshua Krishna
+3492,Spencer's Retail - Adilabad 20,Supermarket,Adilabad,500453,18.5399834,77.6641657,Leena Muni
+3493,D-Mart - Kothagudem 20,Hypermarket,Kothagudem,509977,18.7019951,78.5278643,Jagvi Das
+3494,Gupta Kirana - Dar's,Kirana Store,Ramagundam,505984,18.2981495,77.3999624,Watika Kala
+3495,24x7 Store - Naidu's,Convenience Store,Nizamabad,508640,17.7089986,80.0429737,Vasudha Sama
+3496,Badal-Bhavsar Store,Kirana Store,Nalgonda,503297,16.9278799,79.9468481,Panini Thakkar
+3497,Ratnadeep Retail - Jagtial 2,Supermarket,Jagtial,502536,18.1671296,78.5119789,Bhavya Ramanathan
+3498,Reliance Wholesale - Wanaparthy 12,Wholesaler,Wanaparthy,508602,17.1325345,79.061799,Balendra Kumer

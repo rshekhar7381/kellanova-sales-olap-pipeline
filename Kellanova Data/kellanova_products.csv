@@ -1,0 +1,63 @@
+product_id,product_name,category,brand,pack_size_g_ml,base_unit_price,is_promotional_item
+101,Kellogg's Corn Flakes Original 5g,Cereal,Kellogg's,5,5.0,True
+102,Kellogg's Corn Flakes Original 10g,Cereal,Kellogg's,10,8.0,True
+103,Kellogg's Corn Flakes Original 15g,Cereal,Kellogg's,15,12.0,True
+104,Kellogg's Corn Flakes Original 25g,Cereal,Kellogg's,25,18.0,True
+105,Kellogg's Corn Flakes Original 50g,Cereal,Kellogg's,50,35.0,True
+106,Kellogg's Corn Flakes Original 100g,Cereal,Kellogg's,100,55.0,True
+107,Kellogg's Corn Flakes Original 250g,Cereal,Kellogg's,250,120.0,False
+108,Kellogg's Corn Flakes Original 375g,Cereal,Kellogg's,375,160.0,True
+109,Kellogg's Corn Flakes Original 500g,Cereal,Kellogg's,500,190.0,True
+110,Kellogg's Corn Flakes Original 750g,Cereal,Kellogg's,750,280.0,False
+111,Kellogg's Corn Flakes Original 1.2kg,Cereal,Kellogg's,1200,450.0,False
+112,Kellogg's Corn Flakes Real Almond Honey 300g,Cereal,Kellogg's,300,205.0,True
+113,Kellogg's Corn Flakes Real Strawberry 300g,Cereal,Kellogg's,300,210.0,False
+114,Kellogg's Chocos Crunchy Bites 10g,Cereal,Kellogg's,10,10.0,True
+115,Kellogg's Chocos Crunchy Bites 25g,Cereal,Kellogg's,25,20.0,True
+116,Kellogg's Chocos Crunchy Bites 125g,Cereal,Kellogg's,125,75.0,True
+117,Kellogg's Chocos Crunchy Bites 250g,Cereal,Kellogg's,250,140.0,False
+118,Kellogg's Chocos Crunchy Bites 375g,Cereal,Kellogg's,375,195.0,True
+119,Kellogg's Chocos Moons & Stars 300g,Cereal,Kellogg's,300,180.0,False
+120,Kellogg's Chocos Fills 20g,Cereal,Kellogg's,20,20.0,True
+121,Kellogg's Chocos Fills 250g,Cereal,Kellogg's,250,160.0,True
+122,Kellogg's Chocos Duet 375g,Cereal,Kellogg's,375,205.0,False
+123,Kellogg's Muesli Fruit & Nut 75g,Cereal,Kellogg's,75,60.0,True
+124,Kellogg's Muesli Fruit & Nut 250g,Cereal,Kellogg's,250,180.0,False
+125,Kellogg's Muesli Fruit & Nut 500g,Cereal,Kellogg's,500,350.0,True
+126,Kellogg's Muesli Fruit & Nut 1kg,Cereal,Kellogg's,1000,650.0,False
+127,Kellogg's Muesli 0% Added Sugar 500g,Cereal,Kellogg's,500,380.0,True
+128,Kellogg's Crunchy Granola Almonds & Cranberries 460g,Cereal,Kellogg's,460,398.0,True
+129,Kellogg's Oats 200g,Cereal,Kellogg's,200,50.0,True
+130,Kellogg's Oats 500g,Cereal,Kellogg's,500,90.0,True
+131,Kellogg's Oats 1kg,Cereal,Kellogg's,1000,170.0,False
+132,Kellogg's Special K Original 125g,Cereal,Kellogg's,125,90.0,True
+133,Kellogg's Special K Original 250g,Cereal,Kellogg's,250,180.0,True
+134,Kellogg's Special K Original 435g,Cereal,Kellogg's,435,290.0,False
+135,Kellogg's Special K Protein 300g,Cereal,Kellogg's,300,250.0,False
+136,Pringles Original 42g (Small),Snacks,Pringles,42,40.0,True
+137,Pringles Original 107g (Medium),Snacks,Pringles,107,95.0,True
+138,Pringles Original 134g (Large),Snacks,Pringles,134,120.0,False
+139,Pringles Sour Cream & Onion 42g,Snacks,Pringles,42,40.0,True
+140,Pringles Sour Cream & Onion 107g,Snacks,Pringles,107,95.0,True
+141,Pringles Peri Peri 107g,Snacks,Pringles,107,95.0,False
+142,Pringles Chilli Lemon 107g,Snacks,Pringles,107,95.0,True
+143,Cheez-It Crackers Original 200g,Snacks,Cheez-It,200,120.0,True
+144,Cheez-It Crackers Cheddar 200g,Snacks,Cheez-It,200,125.0,False
+145,Pop-Tarts Frosted Strawberry 416g (8 Pcs),Baked Goods,Pop-Tarts,416,250.0,False
+146,Pop-Tarts Frosted Choco Fudge 416g (8 Pcs),Baked Goods,Pop-Tarts,416,260.0,False
+147,MorningStar Farms Veggie Burgers 300g (4 Pcs),Plant-based,MorningStar Farms,300,280.0,False
+148,Eggo Waffles Original 292g (10 Waffles),Frozen Foods,Eggo,292,190.0,False
+149,RXBAR Chocolate Sea Salt 52g,Protein Bars,RXBAR,52,150.0,True
+150,RXBAR Peanut Butter 52g,Protein Bars,RXBAR,52,150.0,False
+151,Kellogg's Froot Loops 285g,Cereal,Kellogg's,285,199.0,True
+152,Kellogg's All-Bran Wheat Flakes 440g,Cereal,Kellogg's,440,255.0,False
+153,Rice Krispies Treats Original 22g,Snacks,Rice Krispies Treats,22,25.0,True
+154,Rice Krispies Treats Original 100g,Snacks,Rice Krispies Treats,100,100.0,False
+155,Kellogg's Masterchef Flakes 30g,Cereal,Kellogg's,30,20.0,True
+156,Kellogg's Crunchy Nut 375g,Cereal,Kellogg's,375,220.0,False
+157,Kellogg's Energy Bar Chocolate 25g,Snacks,Kellogg's,25,30.0,True
+158,Kellogg's Energy Bar Fruit & Nut 25g,Snacks,Kellogg's,25,30.0,True
+159,Kellogg's K-Pak Multigrain 50g,Cereal,Kellogg's,50,35.0,True
+160,Kellogg's Snack Mix 50g,Snacks,Kellogg's,50,45.0,False
+161,Kellogg's Granola Delights 100g,Cereal,Kellogg's,100,80.0,True
+162,Kellogg's Protein Granola 350g,Cereal,Kellogg's,350,300.0,False

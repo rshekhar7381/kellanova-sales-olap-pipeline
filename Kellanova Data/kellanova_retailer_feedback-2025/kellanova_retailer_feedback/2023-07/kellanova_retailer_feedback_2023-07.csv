@@ -1,0 +1,13 @@
+feedback_id,retailer_id,product_id,sale_id,feedback_date,feedback_type,channel,sentiment,description,status,resolution_details
+1,3408,125.0,7,2023-07-28,Product Suggestion,Whatsapp,Positive,Voluptatum dolores reiciendis perferendis fugit rem vel consequatur a aperiam vitae itaque.,Resolved,Iure tempora amet excepturi similique cupiditate voluptatum a nihil quos eos officiis.
+71,3496,118.0,874,2023-07-06,Delivery Issue,Phone,Positive,In fugit placeat distinctio unde nesciunt est maiores occaecati omnis dolore tempora saepe asperiores quam error vel.,In Progress,
+114,3186,152.0,1398,2023-07-17,Order Accuracy,Phone,Neutral,Unde nesciunt aliquam inventore ipsam autem quas sequi officiis.,Resolved,Odit eius nemo ipsa hic ipsam expedita ex ipsa.
+146,3342,136.0,1786,2023-07-30,Product Suggestion,Email,Negative,Repudiandae nostrum libero quasi molestias odit iure pariatur tenetur cum quia accusamus laudantium explicabo dolor maxime doloribus ut eaque.,Resolved,Commodi nisi totam modi sit neque rerum laborum qui repellendus quasi iure.
+157,3351,,1969,2023-07-29,Complaint,Distributor Portal,Positive,Eveniet deleniti aliquid sapiente exercitationem quo aperiam aliquam dolor molestias non est consectetur deleniti neque.,Closed,Tenetur id voluptate aperiam quae quaerat ut soluta ex tempora.
+180,3309,156.0,2313,2023-07-29,Complaint,Sales Rep,Positive,Magni repellat quas magnam in in totam est facere non.,Escalated,
+277,3367,,3789,2023-07-27,Quality Issue,Whatsapp,Negative,Incidunt error minima voluptatem voluptas nisi soluta reprehenderit at.,Closed,Nobis atque reprehenderit atque quas id fugiat nostrum amet expedita quo.
+329,3274,,4525,2023-07-12,Order Accuracy,Distributor Portal,Neutral,Consequatur deserunt pariatur quaerat odit error est deserunt perspiciatis suscipit nesciunt laboriosam.,Closed,Repellendus reiciendis expedita itaque maxime at in.
+447,3005,159.0,6176,2023-07-12,Order Accuracy,Sales Rep,Neutral,Veritatis quas nobis facere vel debitis deserunt tempore perferendis consequatur laboriosam atque.,Open,
+478,3137,150.0,6627,2023-07-23,Sales Service,Email,Positive,Maxime mollitia omnis et repellendus numquam fugit sint tempore iusto quibusdam occaecati illum facere at sit accusamus debitis.,In Progress,
+683,3224,125.0,9195,2023-07-16,Order Accuracy,Whatsapp,Positive,Ducimus impedit vel culpa dolor qui aspernatur tempore saepe corporis magni deserunt recusandae expedita sit eaque.,Open,
+765,3334,150.0,10294,2023-07-15,Delivery Issue,Email,Negative,Ea distinctio eum aperiam fugit dicta nam quod omnis impedit saepe non expedita.,Escalated,

@@ -1,0 +1,26 @@
+feedback_id,retailer_id,product_id,sale_id,feedback_date,feedback_type,channel,sentiment,description,status,resolution_details
+36,3006,159.0,426,2023-09-08,Complaint,Distributor Portal,Positive,Consequuntur sequi deleniti velit dicta reiciendis fuga aliquam non consequuntur culpa tempora autem eligendi.,In Progress,
+41,3301,,528,2023-09-30,Order Accuracy,Sales Rep,Positive,Id nobis impedit mollitia voluptates deserunt illo corrupti asperiores quos qui iure quisquam repudiandae velit numquam.,Closed,Dolorum eaque ea alias tempore quis labore facere.
+45,3398,157.0,558,2023-09-14,Sales Service,Phone,Neutral,Esse hic quo voluptatum perspiciatis temporibus deleniti eum esse officiis aspernatur alias accusantium dolores tempore.,Escalated,
+67,3451,137.0,809,2023-09-10,Query,Sales Rep,Negative,Modi nisi sequi dolore ipsum quae iusto maxime qui suscipit velit temporibus quidem alias quas temporibus.,Escalated,
+171,3127,128.0,2211,2023-09-16,Query,Phone,Negative,Cum perferendis exercitationem repudiandae modi iste rerum architecto voluptatem maxime aspernatur consequatur.,Open,
+252,3040,153.0,3393,2023-09-10,Order Accuracy,Sales Rep,Positive,Nam quisquam tenetur molestiae vitae numquam velit aperiam rem est sed debitis.,Open,
+351,3226,158.0,4814,2023-09-18,Order Accuracy,Distributor Portal,Neutral,Numquam eius et quas rerum vero hic nostrum ratione vero culpa pariatur.,Closed,Rem ipsa animi eos quidem blanditiis tempore reprehenderit optio maxime porro unde.
+373,3426,152.0,5142,2023-09-27,Delivery Issue,Whatsapp,Positive,Suscipit culpa nam molestiae eius quae suscipit rem aliquam repellendus optio dolorem impedit corrupti omnis.,Escalated,
+375,3407,105.0,5148,2023-09-08,Sales Service,Email,Positive,Necessitatibus recusandae enim eius dolore magni qui enim deleniti quo delectus eum mollitia illo.,In Progress,
+383,3452,158.0,5218,2023-09-13,Query,Email,Positive,Harum temporibus dolor incidunt neque accusamus vitae optio perspiciatis quod impedit itaque enim quidem expedita laboriosam laborum recusandae placeat.,Escalated,
+411,3464,,5618,2023-09-27,Order Accuracy,Sales Rep,Positive,Itaque reiciendis aut commodi repellendus non quae tempora possimus possimus enim in ipsa provident aspernatur.,Resolved,Porro enim ut aliquid ratione odio maxime illo ipsa debitis.
+419,3082,156.0,5751,2023-09-21,Order Accuracy,Email,Negative,Reiciendis eveniet iste reprehenderit rerum possimus maxime cum quasi numquam perferendis facilis quidem.,Open,
+441,3240,112.0,6111,2023-09-01,Sales Service,Distributor Portal,Neutral,Modi quod inventore adipisci pariatur molestiae ad ex autem architecto neque porro autem cumque corporis quisquam minima et qui quod.,In Progress,
+506,3341,144.0,6983,2023-09-14,Quality Issue,Distributor Portal,Neutral,Sint eum dolor incidunt voluptate fuga maxime quia voluptatibus.,Escalated,
+512,3086,158.0,7041,2023-09-13,Quality Issue,Phone,Neutral,Sed sapiente optio ipsam aliquam rerum expedita quaerat exercitationem perspiciatis quasi porro eius sapiente.,In Progress,
+528,3328,160.0,7199,2023-09-26,Quality Issue,Email,Neutral,Error incidunt inventore facilis deserunt blanditiis possimus dolores ipsam at nobis quibusdam est voluptate nesciunt ducimus libero recusandae aut.,Resolved,Nesciunt laudantium a totam ut accusamus accusantium ipsam aliquid eaque.
+529,3341,160.0,7229,2023-09-14,Order Accuracy,Distributor Portal,Negative,Delectus eos cumque repellendus fuga laboriosam dolorum quos possimus tempora temporibus.,In Progress,
+607,3245,113.0,8205,2023-09-08,Product Suggestion,Sales Rep,Positive,Maiores unde eaque quasi in nulla sint perferendis aliquid totam dolorem veritatis officiis voluptates distinctio animi vitae fugiat aliquid.,Closed,Et nihil aliquam ex saepe repellendus aperiam accusantium nesciunt nam eos corporis perferendis.
+613,3456,141.0,8289,2023-09-09,Order Accuracy,Email,Positive,Consequatur a error vel ratione a iste perferendis officiis sed hic reprehenderit tempore eum magnam illum.,Open,
+649,3372,107.0,8813,2023-09-16,Sales Service,Whatsapp,Neutral,Eveniet sapiente iusto amet cupiditate cupiditate expedita iusto et totam nam maiores optio natus itaque vel sint inventore dignissimos.,Resolved,Praesentium repellat adipisci hic dignissimos recusandae iusto.
+694,3239,,9317,2023-09-26,Query,Email,Neutral,Quo quod quas a voluptatum fuga praesentium ab quod aperiam.,Open,
+739,3215,139.0,9889,2023-09-29,Delivery Issue,Email,Positive,Recusandae ducimus excepturi officia autem eligendi libero quae illo.,Closed,Sit dolore deserunt voluptas quasi praesentium reiciendis dolorem maiores quaerat quibusdam.
+769,3227,154.0,10341,2023-09-11,Order Accuracy,Whatsapp,Positive,Corrupti consequuntur error blanditiis reprehenderit esse eos dolores magnam voluptates incidunt.,In Progress,
+782,3047,,10551,2023-09-11,Delivery Issue,Email,Positive,Sapiente harum rem ad numquam eos fuga nostrum velit rem architecto consectetur.,Escalated,
+798,3293,,10702,2023-09-09,Product Suggestion,Email,Neutral,Laudantium ea aspernatur totam aut suscipit dignissimos rem dolores iure fugiat cupiditate nostrum id architecto eveniet occaecati repudiandae repudiandae.,Resolved,Expedita quasi voluptatem vel saepe voluptas magnam.

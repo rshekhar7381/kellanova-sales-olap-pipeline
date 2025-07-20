@@ -1,0 +1,8 @@
+feedback_id,retailer_id,product_id,sale_id,feedback_date,feedback_type,channel,sentiment,description,status,resolution_details
+109,3146,,1335,2025-07-06,Sales Service,Distributor Portal,Neutral,Consequatur quos deserunt voluptates repellendus voluptatem porro soluta dolore incidunt tenetur odio praesentium.,Open,
+185,3419,,2375,2025-07-01,Delivery Issue,Distributor Portal,Neutral,Nesciunt quidem ipsa deleniti amet autem eos quisquam ad quae error.,Escalated,
+267,3189,116.0,3711,2025-07-07,Product Suggestion,Sales Rep,Negative,Iste laborum quas doloremque neque nam ea iusto ab rerum aperiam perferendis alias dolor.,Resolved,Unde veritatis quod assumenda ad occaecati vero facilis.
+340,3117,105.0,4635,2025-07-09,Sales Service,Phone,Negative,Ratione accusantium nam assumenda aspernatur rerum itaque debitis voluptas aspernatur nesciunt itaque ullam repellendus nam.,Escalated,
+476,3369,116.0,6617,2025-07-08,Delivery Issue,Distributor Portal,Neutral,Aliquid neque itaque quod doloremque itaque placeat ipsam voluptate animi quis non dolores et aliquid quasi sint beatae neque.,Closed,Maxime explicabo et alias qui veniam vitae tempore provident nihil quis nostrum.
+656,3116,120.0,8938,2025-07-06,Delivery Issue,Whatsapp,Negative,Vitae nostrum quia aperiam ab dolor mollitia ab deserunt accusamus reiciendis earum soluta assumenda incidunt minima repellendus provident eaque porro.,Escalated,
+758,3176,144.0,10189,2025-07-02,Sales Service,Distributor Portal,Neutral,Rerum reprehenderit veniam sunt modi facilis assumenda ullam eligendi sequi id inventore.,Resolved,Illum vel delectus inventore libero a eveniet recusandae.
